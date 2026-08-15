@@ -1,1651 +1,1971 @@
-/* ===========================
-   GOOGLE FONT
-=========================== */
+/* =========================================================
+   QANDEEL QUDSIA - PORTFOLIO WEBSITE
+   Main Stylesheet
+   ---------------------------------------------------------
+   This file contains:
+   1. Global styles
+   2. Background effects
+   3. Navbar
+   4. Hero section
+   5. Profile card
+   6. Scroll effects
+   7. Reveal animations
+   8. About section
+   9. Education timeline
+   10. Skills
+   11. Projects
+   12. Learning section
+   13. Responsive design
+========================================================= */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-    font-family:'Inter',sans-serif;
+
+/* =========================================================
+   1. GOOGLE FONT + GLOBAL RESET
+========================================================= */
+
+/*
+   The * selector applies these settings to every element.
+   margin and padding are removed so we can control spacing
+   ourselves.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    scroll-behavior: smooth;
+
+    font-family: 'Inter', sans-serif;
 }
 
-:root{
 
-    --bg:#070b17;
-    --card:rgba(255,255,255,.07);
-    --border:rgba(255,255,255,.15);
+/* =========================================================
+   2. COLOR VARIABLES
+========================================================= */
 
-    --purple:#7c3aed;
-    --cyan:#22d3ee;
-    --white:#ffffff;
-    --text:#cbd5e1;
+/*
+   CSS variables allow us to reuse colors throughout the
+   website without writing the same color repeatedly.
+*/
 
+:root {
+
+    --bg: #070b17;
+
+    --card: rgba(255, 255, 255, .07);
+
+    --border: rgba(255, 255, 255, .15);
+
+    --purple: #7c3aed;
+
+    --cyan: #22d3ee;
+
+    --white: #ffffff;
+
+    --text: #cbd5e1;
 }
 
-body{
 
-    background:var(--bg);
-    color:white;
-    overflow-x:hidden;
+/* =========================================================
+   3. BODY
+========================================================= */
 
+body {
+
+    background: var(--bg);
+
+    color: white;
+
+    overflow-x: hidden;
 }
 
 
-/* ===========================
-BACKGROUND
-=========================== */
+/* =========================================================
+   4. ANIMATED BACKGROUND
+========================================================= */
 
-.bg{
+/*
+   .bg covers the entire screen and stays fixed while
+   the user scrolls.
+*/
 
-    position:fixed;
-    inset:0;
-    z-index:-5;
+.bg {
 
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -5;
 }
 
-.grid{
 
-    position:absolute;
-    inset:0;
+/* -------------------------
+   Background Grid
+------------------------- */
+
+.grid {
+
+    position: absolute;
+
+    inset: 0;
 
     background-image:
 
-    linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+        linear-gradient(
+            rgba(255, 255, 255, .05) 1px,
+            transparent 1px
+        ),
 
-    background-size:45px 45px;
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, .05) 1px,
+            transparent 1px
+        );
 
-    mask-image:linear-gradient(black,transparent);
+    background-size: 45px 45px;
 
+    mask-image: linear-gradient(
+        black,
+        transparent
+    );
 }
 
 
-.blob{
+/* -------------------------
+   Floating Background Blobs
+------------------------- */
 
-    position:absolute;
+.blob {
 
-    width:450px;
-    height:450px;
+    position: absolute;
 
-    border-radius:50%;
+    width: 450px;
 
-    filter:blur(80px);
+    height: 450px;
 
-    opacity:.45;
+    border-radius: 50%;
 
-    animation:float 12s infinite ease-in-out;
+    filter: blur(80px);
 
-}
+    opacity: .45;
 
-.blob1{
-
-    background:#7c3aed;
-
-    top:-100px;
-
-    left:-80px;
-
-}
-
-.blob2{
-
-    background:#22d3ee;
-
-    right:-120px;
-
-    bottom:-100px;
-
-    animation-delay:4s;
-
+    animation: float 12s infinite ease-in-out;
 }
 
 
-@keyframes float{
+/* Purple blob */
 
-0%,100%{
+.blob1 {
 
-transform:translateY(0px);
+    background: #7c3aed;
 
-}
+    top: -100px;
 
-50%{
-
-transform:translateY(-40px);
-
-}
-
+    left: -80px;
 }
 
 
-/* ===========================
-NAVBAR
-=========================== */
+/* Cyan blob */
 
-/* ===============================
-PREMIUM NAVBAR
-=============================== */
+.blob2 {
 
-header{
+    background: #22d3ee;
 
-position:fixed;
+    right: -120px;
 
-top:20px;
+    bottom: -100px;
 
-width:100%;
-
-display:flex;
-
-justify-content:center;
-
-z-index:9999;
-
-}
-
-.navbar{
-
-width:min(94%,1300px);
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:16px 32px;
-
-border-radius:60px;
-
-background:rgba(8,12,25,.65);
-
-backdrop-filter:blur(18px);
-
-border:1px solid rgba(255,255,255,.08);
-
-transition:.35s;
-
-}
-
-.logo{
-
-font-size:34px;
-
-font-weight:900;
-
-letter-spacing:2px;
-
-}
-
-.logo span{
-
-color:#38bdf8;
-
-}
-
-.nav-links{
-
-display:flex;
-
-gap:32px;
-
-list-style:none;
-
-align-items:center;
-
-}
-
-.nav-links a{
-
-text-decoration:none;
-
-color:#cbd5e1;
-
-font-weight:600;
-
-position:relative;
-
-transition:.3s;
-
-}
-
-.nav-links a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-
-bottom:-8px;
-
-width:0;
-
-height:2px;
-
-background:#38bdf8;
-
-transition:.35s;
-
-}
-
-.nav-links a:hover{
-
-color:white;
-
-}
-
-.nav-links a:hover::after{
-
-width:100%;
-
-}
-
-.nav-right{
-
-display:flex;
-
-align-items:center;
-
-gap:20px;
-
-}
-
-.hire-btn{
-
-padding:12px 24px;
-
-border-radius:30px;
-
-text-decoration:none;
-
-background:linear-gradient(90deg,#8B5CF6,#38BDF8);
-
-color:white;
-
-font-weight:700;
-
-transition:.35s;
-
-}
-
-.hire-btn:hover{
-
-transform:translateY(-4px);
-
-box-shadow:0 15px 35px rgba(139,92,246,.4);
-
+    animation-delay: 4s;
 }
 
 
-.menu-btn{
+/* Floating animation */
 
-display:none;
+@keyframes float {
 
-font-size:30px;
+    0%,
+    100% {
 
-cursor:pointer;
+        transform: translateY(0);
+    }
 
+    50% {
+
+        transform: translateY(-40px);
+    }
 }
 
 
-/* ===========================
-HERO
-=========================== */
+/* =========================================================
+   5. NAVBAR
+========================================================= */
 
-.hero{
+/*
+   The navbar stays at the top of the screen while scrolling.
+*/
 
-min-height:100vh;
+header {
 
-width:90%;
+    position: fixed;
 
-max-width:1200px;
+    top: 20px;
 
-margin:auto;
+    width: 100%;
 
-display:grid;
+    display: flex;
 
-grid-template-columns:1fr 1fr;
+    justify-content: center;
 
-align-items:center;
-
-gap:70px;
-
-padding-top: 120px;
-
+    z-index: 9999;
 }
 
 
-.tag{
+/* Main navbar container */
 
-display:inline-block;
+.navbar {
 
-padding:8px 18px;
+    width: min(94%, 1300px);
 
-border-radius:50px;
+    display: flex;
 
-background:rgba(124,58,237,.15);
+    justify-content: space-between;
 
-color:#22d3ee;
+    align-items: center;
 
-margin-bottom:20px;
+    padding: 16px 32px;
 
+    border-radius: 60px;
+
+    background: rgba(8, 12, 25, .65);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    transition: .35s;
 }
 
 
-.hero h1{
+/* -------------------------
+   Logo
+------------------------- */
 
-font-size:70px;
+.logo {
 
-line-height:1.05;
+    font-size: 34px;
 
-margin-bottom:15px;
+    font-weight: 900;
 
+    letter-spacing: 2px;
 }
 
 
-.hero h1 span{
+.logo span {
 
-background:linear-gradient(45deg,var(--purple),var(--cyan));
-
-    background-clip:text;
-
-color:transparent;
-
-}
-
-
-.hero h2{
-
-height:45px;
-
-font-size:30px;
-
-color:#22d3ee;
-
-margin-bottom:25px;
-
-}
-
-
-.hero p{
-
-font-size:18px;
-
-color:var(--text);
-
-max-width:550px;
-
-line-height:1.8;
-
-}
-
-
-.hero-buttons{
-
-margin-top:40px;
-
-display:flex;
-
-gap:20px;
-
-}
-
-
-.btn{
-
-padding:16px 34px;
-
-border-radius:50px;
-
-text-decoration:none;
-
-font-weight:700;
-
-transition:.35s;
-
-}
-
-
-.primary{
-
-background:linear-gradient(45deg,var(--purple),var(--cyan));
-
-color:white;
-
-}
-
-
-.primary:hover{
-
-transform:translateY(-5px);
-
-box-shadow:0 15px 40px rgba(124,58,237,.45);
-
-}
-
-
-.secondary{
-
-border:1px solid rgba(255,255,255,.2);
-
-color:white;
-
-}
-
-
-.secondary:hover{
-
-background:white;
-
-color:black;
-
-}
-
-
-/* ===========================
-PROFILE CARD
-=========================== */
-
-.profile-card{
-
-position:relative;
-
-padding:40px;
-
-background:var(--card);
-
-border:1px solid var(--border);
-
-border-radius:35px;
-
-backdrop-filter:blur(20px);
-
-text-align:center;
-
-overflow:hidden;
-
-}
-
-
-.circle{
-
-position:absolute;
-
-width:230px;
-
-height:230px;
-
-background:#22d3ee;
-
-filter:blur(80px);
-
-opacity:.3;
-
-top:-80px;
-
-right:-80px;
-
-}
-
-
-.profile-card img{
-
-width:220px;
-
-height:220px;
-
-border-radius:50%;
-
-object-fit:cover;
-
-border:5px solid rgba(255,255,255,.15);
-
-margin-bottom:25px;
-
-}
-
-
-.profile-card h3{
-
-font-size:30px;
-
-margin-bottom:8px;
-
-}
-
-
-.profile-card p{
-
-color:#cbd5e1;
-
-margin-bottom:25px;
-
-}
-
-
-.badges{
-
-display:flex;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-gap:10px;
-
-}
-
-
-.badges span{
-
-padding:10px 18px;
-
-border-radius:30px;
-
-background:rgba(255,255,255,.08);
-
-border:1px solid rgba(255,255,255,.1);
-
-}
-
-
-/* ===========================
-SCROLL
-=========================== */
-
-.scroll{
-
-position:absolute;
-
-bottom:35px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-color:#22d3ee;
-
-animation:updown 2s infinite;
-
-}
-
-@keyframes updown{
-
-0%,100%{
-
-transform:translate(-50%,0);
-
-}
-
-50%{
-
-transform:translate(-50%,-12px);
-
-}
-
-}
-
-
-/* ===========================
-CURSOR GLOW
-=========================== */
-
-#cursor-glow{
-
-position:fixed;
-
-width:260px;
-
-height:260px;
-
-border-radius:50%;
-
-background:radial-gradient(circle,#7c3aed55,transparent);
-
-pointer-events:none;
-
-transform:translate(-50%,-50%);
-
-filter:blur(40px);
-
-z-index:-1;
-
-}
-
-
-/* ===========================
-PROGRESS BAR
-=========================== */
-
-#progress-bar{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-height:4px;
-
-width:0;
-
-background:linear-gradient(90deg,#7c3aed,#22d3ee);
-
-z-index:99999;
-
-}
-
-
-/* ===========================
-REVEAL
-=========================== */
-
-.reveal{
-
-opacity:0;
-
-transform:translateY(50px);
-
-transition:1s;
-
-}
-
-.reveal.active{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-
-/* ===========================
-RESPONSIVE
-=========================== */
-
-@media(max-width:900px){
-
-.hero{
-
-grid-template-columns:1fr;
-
-text-align:center;
-
-padding-top:150px;
-
-}
-
-.hero p{
-
-margin:auto;
-
-}
-
-.hero-buttons{
-
-justify-content:center;
-
-}
-
-.nav-links{
-
-display:none;
-
-}
-
-.menu-btn{
-
-display:block;
-
-}
-
-.hero h1{
-
-font-size:50px;
-
-}
-
-.profile-card{
-
-max-width:450px;
-
-margin:auto;
-
-}
-
-}
-/* ===========================================
-   ABOUT SECTION
-=========================================== */
-
-.section {
-    padding: 120px 10%;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 70px;
-}
-
-.section-title span {
-    display: inline-block;
     color: #38bdf8;
-    letter-spacing: 4px;
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 15px;
 }
 
-.section-title h2 {
-    font-size: 48px;
+
+/* -------------------------
+   Navigation Links
+------------------------- */
+
+.nav-links {
+
+    display: flex;
+
+    gap: 32px;
+
+    list-style: none;
+
+    align-items: center;
+}
+
+
+.nav-links a {
+
+    text-decoration: none;
+
+    color: #cbd5e1;
+
+    font-weight: 600;
+
+    position: relative;
+
+    transition: .3s;
+}
+
+
+/* Small line underneath links */
+
+.nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: #38bdf8;
+
+    transition: .35s;
+}
+
+
+/* Link hover */
+
+.nav-links a:hover {
+
+    color: white;
+}
+
+
+.nav-links a:hover::after {
+
+    width: 100%;
+}
+
+
+/* Active navigation link */
+
+.nav-links a.active {
+
+    color: #38bdf8;
+}
+
+
+/* -------------------------
+   Right side of navbar
+------------------------- */
+
+.nav-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+/* -------------------------
+   Hire Me button
+------------------------- */
+
+.hire-btn {
+
+    padding: 12px 24px;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    background: linear-gradient(
+        90deg,
+        #8B5CF6,
+        #38BDF8
+    );
+
+    color: white;
+
+    font-weight: 700;
+
+    transition: .35s;
+}
+
+
+.hire-btn:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(139, 92, 246, .4);
+}
+
+
+/* -------------------------
+   Mobile menu button
+------------------------- */
+
+.menu-btn {
+
+    display: none;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+
+/* Mobile navigation opened by JavaScript */
+
+.nav-links.show {
+
+    display: flex;
+
+    position: absolute;
+
+    top: 90px;
+
+    left: 0;
+
+    right: 0;
+
+    background: #101827;
+
+    padding: 30px;
+
+    flex-direction: column;
+
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   6. HERO SECTION
+========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    padding-top: 120px;
+}
+
+
+/* -------------------------
+   Hero Greeting
+------------------------- */
+
+.hero-greeting {
+
+    color: #38BDF8;
+
+    font-size: 18px;
+
+    margin-bottom: 15px;
+
+    letter-spacing: 2px;
+
+    font-weight: 700;
+}
+
+
+/* -------------------------
+   Hero Name
+------------------------- */
+
+.hero-name {
+
+    font-size: 88px;
+
+    font-weight: 900;
+
+    line-height: .95;
+
     margin-bottom: 20px;
-    background: linear-gradient(90deg,#8B5CF6,#38BDF8);
+}
+
+
+/* Gradient applied to Qandeel */
+
+.hero-name span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #8B5CF6,
+            #38BDF8
+        );
+
     background-clip: text;
+
     -webkit-background-clip: text;
+
     color: transparent;
 }
 
+
+/* -------------------------
+   Typing text
+------------------------- */
+
+.hero h2 {
+
+    height: 45px;
+
+    font-size: 30px;
+
+    color: #22d3ee;
+
+    margin-bottom: 25px;
+}
+
+
+/* -------------------------
+   Hero Description
+------------------------- */
+
+.hero-description {
+
+    font-size: 19px;
+
+    line-height: 1.9;
+
+    color: #cbd5e1;
+
+    max-width: 620px;
+
+    margin-top: 20px;
+}
+
+
+/* -------------------------
+   Hero Buttons
+------------------------- */
+
+.hero-buttons {
+
+    margin-top: 45px;
+
+    display: flex;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+}
+
+
+.btn {
+
+    padding: 16px 34px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: .35s;
+}
+
+
+/* Primary button */
+
+.primary {
+
+    background:
+        linear-gradient(
+            45deg,
+            var(--purple),
+            var(--cyan)
+        );
+
+    color: white;
+}
+
+
+.primary:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 40px rgba(124, 58, 237, .45);
+}
+
+
+/* Secondary button */
+
+.secondary {
+
+    border: 1px solid rgba(255, 255, 255, .2);
+
+    color: white;
+}
+
+
+.secondary:hover {
+
+    background: white;
+
+    color: black;
+}
+
+
+/* =========================================================
+   7. PROFILE CARD
+========================================================= */
+
+.profile-card {
+
+    position: relative;
+
+    padding: 40px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 35px;
+
+    backdrop-filter: blur(20px);
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+/* Decorative cyan glow */
+
+.circle {
+
+    position: absolute;
+
+    width: 230px;
+
+    height: 230px;
+
+    background: #22d3ee;
+
+    filter: blur(80px);
+
+    opacity: .3;
+
+    top: -80px;
+
+    right: -80px;
+}
+
+
+/* Profile picture */
+
+.profile-card img {
+
+    width: 220px;
+
+    height: 220px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 5px solid rgba(255, 255, 255, .15);
+
+    margin-bottom: 25px;
+}
+
+
+/* Profile name */
+
+.profile-card h3 {
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+
+/* Profile description */
+
+.profile-card p {
+
+    color: #cbd5e1;
+
+    margin-bottom: 25px;
+}
+
+
+/* -------------------------
+   Skill badges
+------------------------- */
+
+.badges {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+
+.badges span {
+
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, .08);
+
+    border: 1px solid rgba(255, 255, 255, .1);
+}
+
+
+/* -------------------------
+   Internship Status
+------------------------- */
+
+.status-card {
+
+    margin-top: 35px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    border-radius: 18px;
+
+    background: rgba(56, 189, 248, .08);
+
+    border: 1px solid rgba(56, 189, 248, .25);
+
+    font-weight: 600;
+}
+
+
+.status-dot {
+
+    width: 12px;
+
+    height: 12px;
+
+    background: #22c55e;
+
+    border-radius: 50%;
+
+    animation: pulse 1.8s infinite;
+}
+
+
+/* Green status pulse */
+
+@keyframes pulse {
+
+    0% {
+
+        box-shadow:
+            0 0 0 0 rgba(34, 197, 94, .6);
+    }
+
+    70% {
+
+        box-shadow:
+            0 0 0 12px rgba(34, 197, 94, 0);
+    }
+
+    100% {
+
+        box-shadow:
+            0 0 0 0 rgba(34, 197, 94, 0);
+    }
+}
+
+
+/* =========================================================
+   8. SCROLL INDICATOR
+========================================================= */
+
+.scroll {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #22d3ee;
+
+    animation: updown 2s infinite;
+}
+
+
+@keyframes updown {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, 0);
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -12px);
+    }
+}
+
+
+/* =========================================================
+   9. CURSOR GLOW
+========================================================= */
+
+#cursor-glow {
+
+    position: fixed;
+
+    width: 260px;
+
+    height: 260px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #7c3aed55,
+            transparent
+        );
+
+    pointer-events: none;
+
+    transform: translate(-50%, -50%);
+
+    filter: blur(40px);
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   10. SCROLL PROGRESS BAR
+========================================================= */
+
+#progress-bar {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    height: 4px;
+
+    width: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7c3aed,
+            #22d3ee
+        );
+
+    z-index: 99999;
+}
+
+
+/* =========================================================
+   11. REVEAL ANIMATION
+========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    transition: 1s;
+}
+
+
+/* JavaScript adds this class */
+
+.reveal.active {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* Used by stagger animation */
+
+.show-item {
+
+    opacity: 1 !important;
+
+    transform: translateY(0) !important;
+}
+
+
+/* =========================================================
+   12. GENERAL SECTION STYLES
+========================================================= */
+
+.section {
+
+    padding: 120px 10%;
+}
+
+
+/* Section heading */
+
+.section-title {
+
+    text-align: center;
+
+    margin-bottom: 70px;
+}
+
+
+.section-title span {
+
+    display: inline-block;
+
+    color: #38bdf8;
+
+    letter-spacing: 4px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+
+.section-title h2 {
+
+    font-size: 48px;
+
+    margin-bottom: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8B5CF6,
+            #38BDF8
+        );
+
+    background-clip: text;
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+
 .section-title p {
+
     color: #94a3b8;
+
     max-width: 650px;
+
     margin: auto;
+
     line-height: 1.8;
 }
 
-/* ===========================================
-   ABOUT
-=========================================== */
 
-.about-container{
+/* =========================================================
+   13. ABOUT SECTION
+========================================================= */
 
-    display:grid;
-    grid-template-columns:1.2fr .8fr;
-    gap:60px;
-    align-items:center;
+.about-container {
 
+    display: grid;
+
+    grid-template-columns: 1.2fr .8fr;
+
+    gap: 60px;
+
+    align-items: center;
 }
 
-.glass-card{
 
-    background:rgba(255,255,255,.05);
+/* About glass card */
 
-    border:1px solid rgba(255,255,255,.08);
+.glass-card {
 
-    backdrop-filter:blur(18px);
+    background: rgba(255, 255, 255, .05);
 
-    border-radius:25px;
+    border: 1px solid rgba(255, 255, 255, .08);
 
-    padding:45px;
+    backdrop-filter: blur(18px);
 
-    transition:.4s;
+    border-radius: 25px;
 
+    padding: 45px;
+
+    transition: .4s;
 }
 
-.glass-card:hover{
 
-    transform:translateY(-8px);
+.glass-card:hover {
 
-    box-shadow:0 25px 60px rgba(124,58,237,.25);
+    transform: translateY(-8px);
 
+    box-shadow:
+        0 25px 60px rgba(124, 58, 237, .25);
 }
 
-.glass-card h3{
 
-    font-size:34px;
+.glass-card h3 {
 
-    margin-bottom:25px;
+    font-size: 34px;
 
+    margin-bottom: 25px;
 }
 
-.glass-card p{
 
-    margin-bottom:20px;
+.glass-card p {
 
-    line-height:1.9;
+    margin-bottom: 20px;
 
-    color:#cbd5e1;
+    line-height: 1.9;
 
+    color: #cbd5e1;
 }
 
-/* ===========================================
-   STATS
-=========================================== */
 
-.stats{
+/* =========================================================
+   14. ABOUT - STATISTICS
+========================================================= */
 
-display:grid;
+.stats {
 
-grid-template-columns:repeat(2,1fr);
+    display: grid;
 
-gap:20px;
+    grid-template-columns: repeat(2, 1fr);
 
+    gap: 20px;
 }
 
-.stat-card{
 
-background:rgba(255,255,255,.05);
+.stat-card {
 
-padding:35px;
+    background: rgba(255, 255, 255, .05);
 
-border-radius:20px;
+    padding: 35px;
 
-text-align:center;
-
-border:1px solid rgba(255,255,255,.08);
-
-transition:.35s;
-
-}
-
-.stat-card:hover{
-
-transform:translateY(-10px);
-
-background:rgba(139,92,246,.15);
-
-}
-
-.stat-card h2{
-
-font-size:52px;
-
-background:linear-gradient(90deg,#8B5CF6,#38BDF8);
-
-    background-clip:text;
-
-margin-bottom:10px;
-
-}
-
-.stat-card p{
-
-color:#94a3b8;
-
-}
-
-/* ===========================================
-   EDUCATION
-=========================================== */
-
-.timeline{
-
-position:relative;
-
-max-width:900px;
-
-margin:auto;
-
-padding-left:35px;
-
-}
-
-.timeline::before{
-
-content:"";
-
-position:absolute;
-
-left:12px;
-
-top:0;
-
-bottom:0;
-
-width:3px;
-
-background:linear-gradient(#8B5CF6,#38BDF8);
-
-}
-
-.timeline-item{
-
-position:relative;
-
-margin-bottom:55px;
-
-}
-
-.dot{
-
-position:absolute;
-
-left:-2px;
-
-width:28px;
-
-height:28px;
-
-border-radius:50%;
-
-background:#8B5CF6;
-
-box-shadow:0 0 25px #8B5CF6;
-
-}
-
-.timeline-card{
-
-margin-left:55px;
-
-background:rgba(255,255,255,.05);
-
-padding:30px;
-
-border-radius:18px;
-
-border:1px solid rgba(255,255,255,.08);
-
-transition:.4s;
-
-}
-
-.timeline-card:hover{
-
-transform:translateX(10px);
-
-background:rgba(139,92,246,.12);
-
-}
-
-.timeline-card h3{
-
-color:#38bdf8;
-
-margin-bottom:10px;
-
-}
-
-.timeline-card h4{
-
-margin-bottom:15px;
-
-}
-
-/* ===========================================
-   SKILLS
-=========================================== */
-
-.skills-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-
-gap:25px;
-
-}
-
-.skill-card{
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.08);
-
-border-radius:22px;
-
-padding:40px 20px;
-
-text-align:center;
-
-font-size:55px;
-
-transition:.35s;
-
-cursor:pointer;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.skill-card::before{
-
-content:"";
-
-position:absolute;
-
-width:180px;
-
-height:180px;
-
-background:linear-gradient(#8B5CF6,#38BDF8);
-
-border-radius:50%;
-
-filter:blur(70px);
-
-opacity:0;
-
-transition:.5s;
-
-top:-80px;
-
-left:-80px;
-
-}
-
-.skill-card:hover::before{
-
-opacity:.25;
-
-}
-
-.skill-card:hover{
-
-transform:translateY(-12px) scale(1.03);
-
-}
-
-.skill-card h3{
-
-margin-top:20px;
-
-font-size:20px;
-
-}
-
-/* ===========================================
-   RESPONSIVE
-=========================================== */
-
-@media(max-width:900px){
-
-.about-container{
-
-grid-template-columns:1fr;
-
-}
-
-.stats{
-
-grid-template-columns:1fr;
-
-}
-
-.section{
-
-padding:90px 8%;
-
-}
-
-.section-title h2{
-
-font-size:36px;
-
-}
-
-.timeline{
-
-padding-left:20px;
-
-}
-
-.timeline-card{
-
-margin-left:45px;
-
-}
-
-}
-.nav-links a.active {
-    color: #38bdf8;
-}
-.show-item {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
-.nav-links.show {
-    display: flex;
-    position: absolute;
-    top: 90px;
-    left: 0;
-    right: 0;
-    background: #101827;
-    padding: 30px;
-    flex-direction: column;
     border-radius: 20px;
-}
-/* ===========================================
-   VERSION 3 - PROJECTS
-=========================================== */
 
-.projects-grid{
+    text-align: center;
 
-    display:grid;
+    border: 1px solid rgba(255, 255, 255, .08);
 
-    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-
-    gap:35px;
-
-    margin-top:60px;
-
+    transition: .35s;
 }
 
-.project-card{
 
-    background:rgba(255,255,255,.05);
+.stat-card:hover {
 
-    border:1px solid rgba(255,255,255,.08);
+    transform: translateY(-10px);
 
-    border-radius:25px;
-
-    overflow:hidden;
-
-    backdrop-filter:blur(15px);
-
-    transition:.45s;
-
-    position:relative;
-
+    background:
+        rgba(139, 92, 246, .15);
 }
 
-.project-card:hover{
 
-    transform:translateY(-12px);
+.stat-card h2 {
 
-    box-shadow:0 25px 60px rgba(124,58,237,.35);
+    font-size: 52px;
 
+    background:
+        linear-gradient(
+            90deg,
+            #8B5CF6,
+            #38BDF8
+        );
+
+    background-clip: text;
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+
+    margin-bottom: 10px;
 }
 
-.project-image{
 
-    height:240px;
+.stat-card p {
 
-    overflow:hidden;
-
+    color: #94a3b8;
 }
 
-.project-image img{
 
-    width:100%;
+/* =========================================================
+   15. EDUCATION TIMELINE
+========================================================= */
 
-    height:100%;
+.timeline {
 
-    object-fit:cover;
+    position: relative;
 
-    transition:.6s;
+    max-width: 900px;
 
+    margin: auto;
+
+    padding-left: 35px;
 }
 
-.project-card:hover img{
 
-    transform:scale(1.08);
+/* Vertical timeline line */
 
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 12px;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 3px;
+
+    background:
+        linear-gradient(
+            #8B5CF6,
+            #38BDF8
+        );
 }
 
-.project-content{
 
-    padding:30px;
+/* Individual timeline item */
 
+.timeline-item {
+
+    position: relative;
+
+    margin-bottom: 55px;
 }
 
-.project-content h3{
 
-    font-size:28px;
+/* Timeline circle */
 
-    margin-bottom:15px;
+.dot {
 
+    position: absolute;
+
+    left: -2px;
+
+    width: 28px;
+
+    height: 28px;
+
+    border-radius: 50%;
+
+    background: #8B5CF6;
+
+    box-shadow:
+        0 0 25px #8B5CF6;
 }
 
-.project-content p{
 
-    color:#cbd5e1;
+/* Timeline content card */
 
-    line-height:1.8;
+.timeline-card {
 
-    margin-bottom:25px;
+    margin-left: 55px;
 
+    background: rgba(255, 255, 255, .05);
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    transition: .4s;
 }
 
-.project-tags{
 
-    display:flex;
+.timeline-card:hover {
 
-    flex-wrap:wrap;
+    transform: translateX(10px);
 
-    gap:10px;
-
-    margin-bottom:30px;
-
+    background:
+        rgba(139, 92, 246, .12);
 }
 
-.project-tags span{
 
-    padding:8px 16px;
+.timeline-card h3 {
 
-    border-radius:30px;
+    color: #38bdf8;
 
-    background:rgba(124,58,237,.18);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    color:#38bdf8;
-
-    font-size:14px;
-
-    transition:.3s;
-
+    margin-bottom: 10px;
 }
 
-.project-tags span:hover{
 
-    background:#8B5CF6;
+.timeline-card h4 {
 
-    color:white;
-
+    margin-bottom: 15px;
 }
 
-.project-buttons{
 
-    display:flex;
+/* =========================================================
+   16. SKILLS SECTION
+========================================================= */
 
-    gap:15px;
+.skills-grid {
 
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(180px, 1fr)
+        );
+
+    gap: 25px;
 }
 
-.project-buttons a{
 
-    flex:1;
+.skill-card {
 
-    text-align:center;
+    background:
+        rgba(255, 255, 255, .05);
 
-    padding:14px;
+    border:
+        1px solid rgba(255, 255, 255, .08);
 
-    border-radius:12px;
+    border-radius: 22px;
 
-    text-decoration:none;
+    padding: 40px 20px;
 
-    font-weight:600;
+    text-align: center;
 
-    transition:.35s;
+    font-size: 55px;
 
+    transition: .35s;
+
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
 }
 
-.github-btn{
 
-    background:#1e293b;
+/* Skill card glow */
 
-    color:white;
+.skill-card::before {
 
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    background:
+        linear-gradient(
+            #8B5CF6,
+            #38BDF8
+        );
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    opacity: 0;
+
+    transition: .5s;
+
+    top: -80px;
+
+    left: -80px;
 }
 
-.demo-btn{
 
-    background:linear-gradient(90deg,#8B5CF6,#38BDF8);
+.skill-card:hover::before {
 
-    color:white;
-
+    opacity: .25;
 }
 
-.project-buttons a:hover{
 
-    transform:translateY(-4px);
+.skill-card:hover {
 
+    transform:
+        translateY(-12px)
+        scale(1.03);
 }
 
-.project-card::before{
 
-    content:"";
+.skill-card h3 {
 
-    position:absolute;
+    margin-top: 20px;
 
-    width:250px;
-
-    height:250px;
-
-    background:linear-gradient(#8B5CF6,#38BDF8);
-
-    filter:blur(90px);
-
-    opacity:0;
-
-    top:-120px;
-
-    right:-120px;
-
-    transition:.5s;
-
+    font-size: 20px;
 }
 
-.project-card:hover::before{
 
-    opacity:.25;
+/* =========================================================
+   17. PROJECTS SECTION
+========================================================= */
 
+.projects-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(340px, 1fr)
+        );
+
+    gap: 35px;
+
+    margin-top: 60px;
 }
 
-/* ===============================
-COMING SOON CARD
-=============================== */
 
-.coming-soon{
+/* Project card */
 
-    display:flex;
+.project-card {
 
-    justify-content:center;
+    background:
+        rgba(255, 255, 255, .05);
 
-    align-items:center;
+    border:
+        1px solid rgba(255, 255, 255, .08);
 
-    min-height:620px;
+    border-radius: 25px;
 
-    text-align:center;
+    overflow: hidden;
 
+    backdrop-filter: blur(15px);
+
+    transition: .45s;
+
+    position: relative;
 }
 
-.coming-content{
 
-    padding:40px;
+.project-card:hover {
 
+    transform: translateY(-12px);
+
+    box-shadow:
+        0 25px 60px rgba(124, 58, 237, .35);
 }
 
-.coming-content h2{
 
-    font-size:34px;
+/* Project image container */
 
-    margin-bottom:20px;
+.project-image {
 
+    height: 240px;
+
+    overflow: hidden;
 }
 
-.coming-content h3{
 
-    margin-bottom:20px;
+.project-image img {
 
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .6s;
 }
 
-.coming-content p{
 
-    color:#cbd5e1;
+/* Zoom project image */
 
-    line-height:1.8;
+.project-card:hover img {
 
-    margin-bottom:30px;
-
+    transform: scale(1.08);
 }
 
-.progress-bar{
 
-    width:100%;
+/* Project text */
 
-    height:12px;
+.project-content {
 
-    background:#1e293b;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    margin-bottom:15px;
-
+    padding: 30px;
 }
 
-.progress-fill{
 
-    width:65%;
+.project-content h3 {
 
-    height:100%;
+    font-size: 28px;
 
-    background:linear-gradient(90deg,#8B5CF6,#38BDF8);
-
-    animation:progressMove 3s infinite alternate;
-
+    margin-bottom: 15px;
 }
 
-@keyframes progressMove{
 
-from{
+.project-content p {
 
-width:55%;
+    color: #cbd5e1;
 
+    line-height: 1.8;
+
+    margin-bottom: 25px;
 }
 
-to{
 
-width:72%;
+/* -------------------------
+   Project technology tags
+------------------------- */
 
+.project-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 30px;
 }
 
+
+.project-tags span {
+
+    padding: 8px 16px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(124, 58, 237, .18);
+
+    border:
+        1px solid rgba(255, 255, 255, .08);
+
+    color: #38bdf8;
+
+    font-size: 14px;
+
+    transition: .3s;
 }
 
-/* ===============================
-Responsive
-=============================== */
 
-@media(max-width:900px){
+.project-tags span:hover {
 
-.projects-grid{
+    background: #8B5CF6;
 
-grid-template-columns:1fr;
-
+    color: white;
 }
 
-.project-image{
 
-height:210px;
+/* -------------------------
+   Project buttons
+------------------------- */
 
+.project-buttons {
+
+    display: flex;
+
+    gap: 15px;
 }
 
-}
-/* ==========================================
-   LEARNING
-========================================== */
 
-.learning-grid{
+.project-buttons a {
 
-display:grid;
+    flex: 1;
 
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    text-align: center;
 
-gap:25px;
+    padding: 14px;
 
-margin-top:60px;
+    border-radius: 12px;
 
-}
+    text-decoration: none;
 
-.learn-card{
+    font-weight: 600;
 
-background:rgba(255,255,255,.05);
+    transition: .35s;
 
-padding:30px;
+    position: relative;
 
-border-radius:22px;
-
-border:1px solid rgba(255,255,255,.08);
-
-transition:.35s;
-
+    overflow: hidden;
 }
 
-.learn-card:hover{
 
-transform:translateY(-8px);
+.github-btn {
 
-box-shadow:0 20px 45px rgba(124,58,237,.3);
+    background: #1e293b;
 
+    color: white;
 }
 
-.learn-card h3{
 
-margin-bottom:18px;
+.demo-btn {
 
+    background:
+        linear-gradient(
+            90deg,
+            #8B5CF6,
+            #38BDF8
+        );
+
+    color: white;
 }
 
-.learn-bar{
 
-height:12px;
+.project-buttons a:hover {
 
-background:#1e293b;
-
-border-radius:20px;
-
-overflow:hidden;
-
-margin-bottom:15px;
-
+    transform: translateY(-4px);
 }
 
-.fill{
 
-height:100%;
+/* Project card glow */
 
-background:linear-gradient(90deg,#8B5CF6,#38BDF8);
+.project-card::before {
 
-border-radius:20px;
+    content: "";
 
-animation:grow 2s ease;
+    position: absolute;
 
+    width: 250px;
+
+    height: 250px;
+
+    background:
+        linear-gradient(
+            #8B5CF6,
+            #38BDF8
+        );
+
+    filter: blur(90px);
+
+    opacity: 0;
+
+    top: -120px;
+
+    right: -120px;
+
+    transition: .5s;
 }
 
-.python{width:75%;}
-.sql{width:60%;}
-.html{width:85%;}
-.js{width:45%;}
-.powerbi{width:90%;}
-.git{width:55%;}
 
-@keyframes grow{
+.project-card:hover::before {
 
-from{
-
-width:0;
-
+    opacity: .25;
 }
 
-}
-.project-buttons a{
-    position:relative;
-    overflow:hidden;
-}
 
-@keyframes ripple{
+/* =========================================================
+   18. COMING SOON PROJECT
+========================================================= */
 
-0%{
-transform:translate(-50%,-50%) scale(0);
-opacity:.8;
-}
+.coming-soon {
 
-100%{
-transform:translate(-50%,-50%) scale(18);
-opacity:0;
-}
+    display: flex;
 
-}
-/* ==========================================
-PREMIUM HERO
-========================================== */
+    justify-content: center;
 
-.hero-name{
+    align-items: center;
 
-font-size:88px;
+    min-height: 620px;
 
-font-weight:900;
-
-line-height:0.95;
-
-margin-bottom:20px;
-
+    text-align: center;
 }
 
-.hero-name span{
 
-background:linear-gradient(90deg,#8B5CF6,#38BDF8);
+.coming-content {
 
-background-clip:text;
-
--webkit-background-clip:text;
-
-color:transparent;
-
+    padding: 40px;
 }
 
-.hero-greeting{
 
-color:#38BDF8;
+.coming-content h2 {
 
-font-size:18px;
+    font-size: 34px;
 
-margin-bottom:15px;
-
-letter-spacing:2px;
-
-font-weight:700;
-
+    margin-bottom: 20px;
 }
 
-.hero-description{
 
-font-size:19px;
+.coming-content h3 {
 
-line-height:1.9;
-
-color:#cbd5e1;
-
-max-width:620px;
-
-margin-top:20px;
-
+    margin-bottom: 20px;
 }
 
-.hero-buttons{
 
-margin-top:45px;
+.coming-content p {
 
-display:flex;
+    color: #cbd5e1;
 
-gap:18px;
+    line-height: 1.8;
 
-flex-wrap:wrap;
-
-}
-.status-card{
-
-margin-top:35px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-gap:12px;
-
-padding:14px;
-
-border-radius:18px;
-
-background:rgba(56,189,248,.08);
-
-border:1px solid rgba(56,189,248,.25);
-
-font-weight:600;
-
+    margin-bottom: 30px;
 }
 
-.status-dot{
 
-width:12px;
+/* Progress bar */
 
-height:12px;
+.progress-bar {
 
-background:#22c55e;
+    width: 100%;
 
-border-radius:50%;
+    height: 12px;
 
-animation:pulse 1.8s infinite;
+    background: #1e293b;
 
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-bottom: 15px;
 }
 
-@keyframes pulse{
 
-0%{
-box-shadow:0 0 0 0 rgba(34,197,94,.6);
+.progress-fill {
+
+    width: 65%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8B5CF6,
+            #38BDF8
+        );
+
+    animation:
+        progressMove 3s infinite alternate;
 }
 
-70%{
-box-shadow:0 0 0 12px rgba(34,197,94,0);
+
+@keyframes progressMove {
+
+    from {
+
+        width: 55%;
+    }
+
+    to {
+
+        width: 72%;
+    }
 }
 
-100%{
-box-shadow:0 0 0 0 rgba(34,197,94,0);
+
+/* =========================================================
+   19. LEARNING SECTION
+========================================================= */
+
+.learning-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(320px, 1fr)
+        );
+
+    gap: 25px;
+
+    margin-top: 60px;
 }
 
+
+/* Learning card */
+
+.learn-card {
+
+    background:
+        rgba(255, 255, 255, .05);
+
+    padding: 30px;
+
+    border-radius: 22px;
+
+    border:
+        1px solid rgba(255, 255, 255, .08);
+
+    transition: .35s;
 }
+
+
+.learn-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 45px rgba(124, 58, 237, .3);
+}
+
+
+.learn-card h3 {
+
+    margin-bottom: 18px;
+}
+
+
+/* Learning progress bar */
+
+.learn-bar {
+
+    height: 12px;
+
+    background: #1e293b;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-bottom: 15px;
+}
+
+
+/* Common progress fill */
+
+.fill {
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8B5CF6,
+            #38BDF8
+        );
+
+    border-radius: 20px;
+
+    animation: grow 2s ease;
+}
+
+
+/* Individual learning percentages */
+
+.python {
+    width: 75%;
+}
+
+.sql {
+    width: 60%;
+}
+
+.html {
+    width: 85%;
+}
+
+.js {
+    width: 45%;
+}
+
+.powerbi {
+    width: 90%;
+}
+
+.git {
+    width: 55%;
+}
+
+
+/* Learning bar animation */
+
+@keyframes grow {
+
+    from {
+
+        width: 0;
+    }
+}
+
+
+/* =========================================================
+   20. RIPPLE ANIMATION
+========================================================= */
+
+/*
+   The JavaScript can use this animation when the user
+   clicks project buttons.
+*/
+
+@keyframes ripple {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        opacity: .8;
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(18);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   21. RESPONSIVE DESIGN
+========================================================= */
+
+/*
+   These styles activate when the screen is 900px or smaller.
+   This makes the portfolio usable on tablets and phones.
+*/
+
+@media (max-width: 900px) {
+
+
+    /* -------------------------
+       Hero
+    ------------------------- */
+
+    .hero {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        padding-top: 150px;
+    }
+
+
+    .hero p {
+
+        margin: auto;
+    }
+
+
+    .hero-buttons {
+
+        justify-content: center;
+    }
+
+
+    .hero-name {
+
+        font-size: 50px;
+    }
+
+
+    .profile-card {
+
+        max-width: 450px;
+
+        margin: auto;
+    }
+
+
+    /* -------------------------
+       Navbar
+    ------------------------- */
+
+    .nav-links {
+
+        display: none;
+    }
+
+
+    .menu-btn {
+
+        display: block;
+    }
+
+
+    /* -------------------------
+       About
+    ------------------------- */
+
+    .about-container {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* -------------------------
+       Statistics
+    ------------------------- */
+
+    .stats {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* -------------------------
+       General sections
+    ------------------------- */
+
+    .section {
+
+        padding: 90px 8%;
+    }
+
+
+    .section-title h2 {
+
+        font-size: 36px;
+    }
+
+
+    /* -------------------------
+       Timeline
+    ------------------------- */
+
+    .timeline {
+
+        padding-left: 20px;
+    }
+
+
+    .timeline-card {
+
+        margin-left: 45px;
+    }
+
+
+    /* -------------------------
+       Projects
+    ------------------------- */
+
+    .projects-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .project-image {
+
+        height: 210px;
+    }
+}
+
+
+/* =========================================================
+   END OF STYLESHEET
+========================================================= */
