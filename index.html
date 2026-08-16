@@ -3,141 +3,71 @@
 
 <head>
 
-    <!-- =========================
-         BASIC PAGE INFORMATION
-    ========================== -->
-
-    <!-- Character encoding -->
     <meta charset="UTF-8">
-
-    <!-- Makes the website responsive on phones/tablets -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Browser tab title -->
     <title>Qandeel Qudsia | Portfolio</title>
 
-    <!-- Short description for search engines -->
-    <meta name="description"
-        content="Portfolio of Qandeel Qudsia | Data Science Student | Aspiring Data Scientist | Python | SQL | Power BI | Git | HTML | CSS | JavaScript">
-
-
-    <!-- =========================
-         GOOGLE FONT
-    ========================== -->
-
-    <!-- Connect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Inter font used throughout the portfolio -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-
-
-    <!-- =========================
-         CSS FILE
-    ========================== -->
 
     <link rel="stylesheet" href="styles.css">
 
 </head>
-
-
 <body>
 
-
-    <!-- =====================================================
+    <!-- ==================================================
          BACKGROUND
-         Decorative animated background elements
-    ====================================================== -->
+    ================================================== -->
 
     <div class="bg">
-
-        <!-- Purple animated blob -->
         <div class="blob blob1"></div>
-
-        <!-- Cyan animated blob -->
         <div class="blob blob2"></div>
-
-        <!-- Background grid -->
         <div class="grid"></div>
-
     </div>
 
-
-    <!-- =====================================================
-         MOUSE GLOW
-         JavaScript moves this glow according to the mouse
-    ====================================================== -->
-
+    <!-- Mouse-following glow -->
     <div id="cursor-glow"></div>
 
-
-    <!-- =====================================================
-         SCROLL PROGRESS BAR
-         Shows how far the visitor has scrolled
-    ====================================================== -->
-
+    <!-- Page scroll progress -->
     <div id="progress-bar"></div>
 
 
-    <!-- =====================================================
-         NAVIGATION BAR
-    ====================================================== -->
+    <!-- ==================================================
+         NAVBAR
+    ================================================== -->
 
     <header>
 
         <nav class="navbar">
 
-            <!-- Portfolio logo -->
+            <!-- Logo -->
             <div class="logo">
                 QQ<span>.</span>
             </div>
 
-
             <!-- Navigation links -->
             <ul class="nav-links">
 
-                <li>
-                    <a href="#home">Home</a>
-                </li>
-
-                <li>
-                    <a href="#about">About</a>
-                </li>
-
-                <li>
-                    <a href="#education">Journey</a>
-                </li>
-
-                <li>
-                    <a href="#skills">Skills</a>
-                </li>
-
-                <li>
-                    <a href="#projects">Projects</a>
-                </li>
-
-                <li>
-                    <a href="#learning">Learning</a>
-                </li>
-
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Journey</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#learning">Learning</a></li>
+                <li><a href="#contact">Contact</a></li>
 
             </ul>
-
 
             <!-- Right side of navbar -->
             <div class="nav-right">
 
-                <!-- Quick contact button -->
                 <a href="#contact" class="hire-btn">
                     Hire Me
                 </a>
-
 
                 <!-- Mobile menu button -->
                 <div class="menu-btn">
@@ -151,642 +81,104 @@
     </header>
 
 
-    <!-- =====================================================
+    <!-- ==================================================
          HERO SECTION
-         First section visitors see
-    ====================================================== -->
+    ================================================== -->
 
-    <section class="hero" id="home">
+    <main>
 
+        <section class="hero" id="home">
 
-        <!-- =========================
-             HERO LEFT SIDE
-        ========================== -->
+            <!-- Hero text -->
+            <div class="hero-left reveal">
 
-        <div class="hero-left reveal">
-
-            <!-- Greeting -->
-            <p class="hero-greeting">
-                👋 Hello, I'm
-            </p>
-
-
-            <!-- Main name -->
-            <h1 class="hero-name">
-
-                <span>Qandeel</span>
-                <br>
-                Qudsia
-
-            </h1>
-
-
-            <!--
-                JavaScript typing animation
-                will display different roles here.
-            -->
-            <h2>
-                <span id="typing"></span>
-            </h2>
-
-
-            <!-- Hero introduction -->
-            <p class="hero-description">
-
-                A passionate Data Science student who enjoys
-                building interactive dashboards, solving problems
-                through data, and creating modern web applications.
-
-                Currently learning Python, SQL, JavaScript,
-                Power BI and Tableau while continuously improving
-                my software development skills.
-
-            </p>
-
-
-            <!-- Hero buttons -->
-            <div class="hero-buttons">
-
-                <!-- Scroll to projects -->
-                <a href="#projects" class="btn primary">
-                    View My Work
-                </a>
-
-
-                <!-- Open resume -->
-                <a href="assets/resume.pdf"
-                    class="btn secondary"
-                    target="_blank">
-
-                    View Resume
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- =========================
-             HERO RIGHT SIDE
-             Profile card
-        ========================== -->
-
-        <div class="hero-right reveal">
-
-            <div class="profile-card">
-
-                <!-- Decorative glow -->
-                <div class="circle"></div>
-
-
-                <!-- Profile picture -->
-                <img src="assets/profile.png" alt="Profile">
-
-
-                <!-- Name -->
-                <h3>
-                    Qandeel Qudsia
-                </h3>
-
-
-                <!-- Current role -->
-                <p>
-                    Data Science Student
+                <p class="hero-greeting">
+                    👋 Hello, I'm
                 </p>
 
+                <h1 class="hero-name">
 
-                <!-- =========================
-                     SKILL BADGES
-                ========================== -->
+                    <span>Qandeel</span><br>
 
-                <div class="badges">
+                    Qudsia
 
-                    <span>Python</span>
-                    <span>SQL</span>
-                    <span>Power BI</span>
-                    <span>Git</span>
-                    <span>HTML</span>
-                    <span>CSS</span>
+                </h1>
 
-                </div>
+                <!-- Typing animation -->
+                <h2>
+                    <span id="typing"></span>
+                </h2>
 
+                <p class="hero-description">
 
-                <!-- =========================
-                     INTERNSHIP STATUS
-                ========================== -->
+                    A passionate Data Science student who enjoys
+                    building interactive dashboards, solving problems
+                    through data, and creating modern web applications.
 
-                <div class="status-card">
+                    Currently learning Python, SQL, JavaScript,
+                    Power BI and Tableau while continuously improving
+                    my software development skills.
 
-                    <!-- Status indicator -->
-                    <span class="status-dot"></span>
+                </p>
 
-                    Open to Internship Opportunities
+                <!-- Hero buttons -->
+                <div class="hero-buttons">
+
+                    <a href="#projects" class="btn primary">
+                        View My Work
+                    </a>
+
+                    <a
+                        href="assets/resume.pdf"
+                        class="btn secondary"
+                        target="_blank"
+                    >
+                        View Resume
+                    </a>
 
                 </div>
 
             </div>
 
-        </div>
 
+            <!-- Hero profile card -->
+            <div class="hero-right reveal">
 
-        <!-- Scroll indicator -->
-        <div class="scroll">
-            Scroll ↓
-        </div>
+                <div class="profile-card">
 
-    </section>
+                    <div class="circle"></div>
 
-
-    <!-- =====================================================
-         ABOUT SECTION
-    ====================================================== -->
-
-    <section class="about section reveal" id="about">
-
-
-        <!-- Section heading -->
-        <div class="section-title">
-
-            <span>ABOUT ME</span>
-
-            <h2>My Journey</h2>
-
-            <p>
-                Every expert was once a beginner.
-                Here's my story.
-            </p>
-
-        </div>
-
-
-        <!-- Main About content -->
-        <div class="about-container">
-
-
-            <!-- =========================
-                 ABOUT TEXT
-            ========================== -->
-
-            <div class="about-left">
-
-                <div class="glass-card">
+                    <img
+                        src="assets/profile.png"
+                        alt="Qandeel Qudsia profile"
+                    >
 
                     <h3>
-                        Hello! 👋
+                        Qandeel Qudsia
                     </h3>
 
-
                     <p>
-
-                        I'm <strong>Qandeel Qudsia</strong>,
-                        a Data Science student passionate about
-                        software development, data analytics,
-                        and building beautiful digital experiences.
-
+                        Data Science Student
                     </p>
 
-
-                    <p>
-
-                        My journey started with curiosity.
-
-                        Today I'm learning Python,
-                        SQL,
-                        Power BI,
-                        Git,
-                        HTML,
-                        CSS
-                        and JavaScript while building
-                        real-world projects.
-
-                    </p>
-
-
-                    <p>
-
-                        My dream is to become a Data Scientist and
-                        work in a global tech company where I can,
-                        create products that solve real problems,
-                        contribute to open-source,
-                        and continuously learn new technologies.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- =========================
-                 ABOUT STATISTICS
-            ========================== -->
-
-            <div class="about-right">
-
-                <div class="stats">
-
-
-                    <!-- Technologies counter -->
-                    <div class="stat-card">
-
-                        <h2 class="counter" data-target="10">
-                            0
-                        </h2>
-
-                        <p>
-                            Technologies
-                        </p>
-
-                    </div>
-
-
-                    <!-- Projects counter -->
-                    <div class="stat-card">
-
-                        <h2 class="counter" data-target="4">
-                            0
-                        </h2>
-
-                        <p>
-                            Projects
-                        </p>
-
-                    </div>
-
-
-                    <!-- Certificates counter -->
-                    <div class="stat-card">
-
-                        <h2 class="counter" data-target="8">
-                            0
-                        </h2>
-
-                        <p>
-                            Certificates
-                        </p>
-
-                    </div>
-
-
-                    <!-- Learning hours counter -->
-                    <div class="stat-card">
-
-                        <h2 class="counter" data-target="100">
-                            0
-                        </h2>
-
-                        <p>
-                            Learning Hours
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         EDUCATION / JOURNEY SECTION
-    ====================================================== -->
-
-    <section class="education section reveal" id="education">
-
-
-        <!-- Section heading -->
-        <div class="section-title">
-
-            <span>EDUCATION</span>
-
-            <h2>Learning Timeline</h2>
-
-        </div>
-
-
-        <!-- Timeline container -->
-        <div class="timeline">
-
-
-            <!-- =========================
-                 TIMELINE ITEM 1
-            ========================== -->
-
-            <div class="timeline-item">
-
-                <div class="dot"></div>
-
-                <div class="timeline-card">
-
-                    <h3>
-                        2025
-                    </h3>
-
-                    <h4>
-                        Started Data Science
-                    </h4>
-
-                    <p>
-
-                        Began my journey into programming,
-                        problem solving and software development.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- =========================
-                 TIMELINE ITEM 2
-            ========================== -->
-
-            <div class="timeline-item">
-
-                <div class="dot"></div>
-
-                <div class="timeline-card">
-
-                    <h3>
-                        2026
-                    </h3>
-
-                    <h4>
-                        Building Skills
-                    </h4>
-
-                    <p>
-
-                        Learning Python,
-                        SQL,
-                        Power BI,
-                        Git,
-                        HTML,
-                        CSS
-                        and JavaScript.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- =========================
-                 TIMELINE ITEM 3
-            ========================== -->
-
-            <div class="timeline-item">
-
-                <div class="dot"></div>
-
-                <div class="timeline-card">
-
-                    <h3>
-                        Future
-                    </h3>
-
-                    <h4>
-                        Data Scientist
-                    </h4>
-
-                    <p>
-
-                        Building products,
-                        contributing to open source
-                        and working in a global tech company.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         SKILLS SECTION
-    ====================================================== -->
-
-    <section class="skills section reveal" id="skills">
-
-
-        <!-- Section heading -->
-        <div class="section-title">
-
-            <span>SKILLS</span>
-
-            <h2>Tech Stack</h2>
-
-        </div>
-
-
-        <!-- Skills grid -->
-        <div class="skills-grid">
-
-
-            <!-- Python -->
-            <div class="skill-card">
-
-                🐍
-
-                <h3>
-                    Python
-                </h3>
-
-            </div>
-
-
-            <!-- SQL -->
-            <div class="skill-card">
-
-                💾
-
-                <h3>
-                    SQL
-                </h3>
-
-            </div>
-
-
-            <!-- Power BI -->
-            <div class="skill-card">
-
-                📊
-
-                <h3>
-                    Power BI
-                </h3>
-
-            </div>
-
-
-            <!-- HTML -->
-            <div class="skill-card">
-
-                🌐
-
-                <h3>
-                    HTML5
-                </h3>
-
-            </div>
-
-
-            <!-- CSS -->
-            <div class="skill-card">
-
-                🎨
-
-                <h3>
-                    CSS3
-                </h3>
-
-            </div>
-
-
-            <!-- JavaScript -->
-            <div class="skill-card">
-
-                ⚡
-
-                <h3>
-                    JavaScript
-                </h3>
-
-            </div>
-
-
-            <!-- Git -->
-            <div class="skill-card">
-
-                🔧
-
-                <h3>
-                    Git
-                </h3>
-
-            </div>
-
-
-            <!-- Tableau -->
-            <div class="skill-card">
-
-                📈
-
-                <h3>
-                    Tableau
-                </h3>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         PROJECTS SECTION
-    ====================================================== -->
-
-    <section class="projects section reveal" id="projects">
-
-
-        <!-- Section heading -->
-        <div class="section-title">
-
-            <span>PORTFOLIO</span>
-
-            <h2>Featured Projects</h2>
-
-            <p>
-
-                These projects showcase my journey in data analytics,
-                dashboard development and data visualization.
-
-            </p>
-
-        </div>
-
-
-        <!-- Projects grid -->
-        <div class="projects-grid">
-
-
-            <!-- =================================================
-                 PROJECT 1 - POWER BI SALES DASHBOARD
-            ================================================== -->
-
-            <div class="project-card">
-
-
-                <!-- Project image -->
-                <div class="project-image">
-
-                    <img src="assets/sales-dashboard.png"
-                        alt="Sales Dashboard">
-
-                </div>
-
-
-                <!-- Project information -->
-                <div class="project-content">
-
-                    <h3>
-                        Sales Performance Dashboard
-                    </h3>
-
-
-                    <p>
-
-                        Designed an interactive Power BI dashboard
-                        to analyze sales performance using KPIs,
-                        revenue trends, regional performance and
-                        product insights.
-
-                        Interactive filters allow users to explore
-                        data and make informed business decisions.
-
-                    </p>
-
-
-                    <!-- Technologies used -->
-                    <div class="project-tags">
-
+                    <!-- Technology badges -->
+                    <div class="badges">
+
+                        <span>Python</span>
+                        <span>SQL</span>
                         <span>Power BI</span>
-                        <span>DAX</span>
-                        <span>Power Query</span>
-                        <span>Excel</span>
+                        <span>Git</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
 
                     </div>
 
+                    <!-- Internship status -->
+                    <div class="status-card">
 
-                    <!-- Project links -->
-                    <div class="project-buttons">
+                        <span class="status-dot"></span>
 
-                        <a href="https://github.com/Qandeel2006"
-                            target="_blank"
-                            class="github-btn">
-
-                            GitHub
-
-                        </a>
-
-
-                        <a href="#"
-                            class="demo-btn">
-
-                            Preview
-
-                        </a>
+                        Open to Internship Opportunities
 
                     </div>
 
@@ -795,69 +187,157 @@
             </div>
 
 
-            <!-- =================================================
-                 PROJECT 2 - HR ANALYTICS DASHBOARD
-            ================================================== -->
+            <!-- Scroll indicator -->
+            <div class="scroll">
+                Scroll ↓
+            </div>
 
-            <div class="project-card">
+        </section>
 
 
-                <!-- Project image -->
-                <div class="project-image">
 
-                    <img src="assets/hr-dashboard.png"
-                        alt="HR Analytics Dashboard">
+        <!-- ==================================================
+             ABOUT SECTION
+        ================================================== -->
+
+        <section
+            class="about section reveal"
+            id="about"
+        >
+
+            <div class="section-title">
+
+                <span>ABOUT ME</span>
+
+                <h2>
+                    My Journey
+                </h2>
+
+                <p>
+                    Every expert was once a beginner.
+                    Here's my story.
+                </p>
+
+            </div>
+
+
+            <div class="about-container">
+
+                <!-- About text -->
+                <div class="about-left">
+
+                    <div class="glass-card">
+
+                        <h3>
+                            Hello! 👋
+                        </h3>
+
+                        <p>
+
+                            I'm <strong>Qandeel Qudsia</strong>,
+                            a Data Science student passionate about
+                            software development, data analytics,
+                            and building beautiful digital experiences.
+
+                        </p>
+
+                        <p>
+
+                            My journey started with curiosity.
+
+                            Today I'm learning Python,
+                            SQL,
+                            Power BI,
+                            Git,
+                            HTML,
+                            CSS
+                            and JavaScript while building
+                            real-world projects.
+
+                        </p>
+
+                        <p>
+
+                            My dream is to become a Data Scientist and
+                            work in a global tech company where I can
+                            create products that solve real problems,
+                            contribute to open-source,
+                            and continuously learn new technologies.
+
+                        </p>
+
+                    </div>
 
                 </div>
 
 
-                <!-- Project information -->
-                <div class="project-content">
+                <!-- Statistics -->
+                <div class="about-right">
 
-                    <h3>
-                        HR Analytics Dashboard
-                    </h3>
+                    <div class="stats">
 
+                        <div class="stat-card">
 
-                    <p>
+                            <h2
+                                class="counter"
+                                data-target="10"
+                            >
+                                0
+                            </h2>
 
-                        Built an HR Analytics Dashboard in Tableau
-                        to visualize employee data, attrition trends,
-                        department performance and workforce KPIs
-                        through interactive charts and dashboards.
+                            <p>
+                                Technologies
+                            </p>
 
-                    </p>
-
-
-                    <!-- Technologies used -->
-                    <div class="project-tags">
-
-                        <span>Tableau</span>
-                        <span>Analytics</span>
-                        <span>Excel</span>
-                        <span>Dashboard</span>
-
-                    </div>
+                        </div>
 
 
-                    <!-- Project links -->
-                    <div class="project-buttons">
+                        <div class="stat-card">
 
-                        <a href="https://github.com/Qandeel2006"
-                            target="_blank"
-                            class="github-btn">
+                            <h2
+                                class="counter"
+                                data-target="2"
+                            >
+                                0
+                            </h2>
 
-                            GitHub
+                            <p>
+                                Projects
+                            </p>
 
-                        </a>
+                        </div>
 
 
-                        <a href="#"
-                            class="demo-btn">
+                        <div class="stat-card">
 
-                            Coming Soon
+                            <h2
+                                class="counter"
+                                data-target="8"
+                            >
+                                0
+                            </h2>
 
-                        </a>
+                            <p>
+                                Certificates
+                            </p>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <h2
+                                class="counter"
+                                data-target="100"
+                            >
+                                0
+                            </h2>
+
+                            <p>
+                                Learning Hours
+                            </p>
+
+                        </div>
 
                     </div>
 
@@ -865,226 +345,810 @@
 
             </div>
 
-
-            <!-- =================================================
-                 PROJECT 3 - COMING SOON
-            ================================================== -->
-
-            <div class="project-card coming-soon">
-
-                <div class="coming-content">
-
-                    <h2>
-                        🚀 Coming Soon
-                    </h2>
-
-                    <h3>
-                        Portfolio Website
-                    </h3>
-
-                    <p>
-
-                        Currently developing this responsive portfolio
-                        using HTML, CSS and JavaScript.
-
-                    </p>
+        </section>
 
 
-                    <!-- Project progress -->
-                    <div class="progress-bar">
 
-                        <div class="progress-fill"></div>
+        <!-- ==================================================
+             EDUCATION SECTION
+        ================================================== -->
+
+        <section
+            class="education section reveal"
+            id="education"
+        >
+
+            <div class="section-title">
+
+                <span>
+                    EDUCATION
+                </span>
+
+                <h2>
+                    Learning Timeline
+                </h2>
+
+            </div>
+
+
+            <div class="timeline">
+
+                <!-- 2025 -->
+                <div class="timeline-item">
+
+                    <div class="dot"></div>
+
+                    <div class="timeline-card">
+
+                        <h3>
+                            2025
+                        </h3>
+
+                        <h4>
+                            Started Data Science
+                        </h4>
+
+                        <p>
+
+                            Began my journey into programming,
+                            problem solving and software development.
+
+                        </p>
 
                     </div>
 
+                </div>
+
+
+                <!-- 2026 -->
+                <div class="timeline-item">
+
+                    <div class="dot"></div>
+
+                    <div class="timeline-card">
+
+                        <h3>
+                            2026
+                        </h3>
+
+                        <h4>
+                            Building Skills
+                        </h4>
+
+                        <p>
+
+                            Learning Python,
+                            SQL,
+                            Power BI,
+                            Git,
+                            HTML,
+                            CSS
+                            and JavaScript.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Future -->
+                <div class="timeline-item">
+
+                    <div class="dot"></div>
+
+                    <div class="timeline-card">
+
+                        <h3>
+                            Future
+                        </h3>
+
+                        <h4>
+                            Data Scientist
+                        </h4>
+
+                        <p>
+
+                            Building products,
+                            contributing to open source
+                            and working in a global tech company.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             SKILLS SECTION
+        ================================================== -->
+
+        <section
+            class="skills section reveal"
+            id="skills"
+        >
+
+            <div class="section-title">
+
+                <span>
+                    SKILLS
+                </span>
+
+                <h2>
+                    Tech Stack
+                </h2>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    🐍
+                    <h3>Python</h3>
+                </div>
+
+                <div class="skill-card">
+                    💾
+                    <h3>SQL</h3>
+                </div>
+
+                <div class="skill-card">
+                    📊
+                    <h3>Power BI</h3>
+                </div>
+
+                <div class="skill-card">
+                    🌐
+                    <h3>HTML5</h3>
+                </div>
+
+                <div class="skill-card">
+                    🎨
+                    <h3>CSS3</h3>
+                </div>
+
+                <div class="skill-card">
+                    ⚡
+                    <h3>JavaScript</h3>
+                </div>
+
+                <div class="skill-card">
+                    🔧
+                    <h3>Git</h3>
+                </div>
+
+                <div class="skill-card">
+                    📈
+                    <h3>Tableau</h3>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             PROJECTS SECTION
+             VERSION 5 WILL REDESIGN THIS SECTION
+        ================================================== -->
+
+        <section
+            class="projects section reveal"
+            id="projects"
+        >
+
+            <div class="section-title">
+
+                <span>
+                    PORTFOLIO
+                </span>
+
+                <h2>
+                    Featured Projects
+                </h2>
+
+                <p>
+
+                    These projects showcase my journey in
+                    data analytics, dashboard development
+                    and data visualization.
+
+                </p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+
+                <!-- ==========================
+                     PROJECT 1
+                =========================== -->
+
+                <div class="project-card">
+
+                    <div class="project-image">
+
+                        <img
+                            src="assets/sales-dashboard.png"
+                            alt="Sales Performance Dashboard"
+                        >
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <h3>
+                            Sales Performance Dashboard
+                        </h3>
+
+                        <p>
+
+                            Designed an interactive Power BI dashboard
+                            to analyze sales performance using KPIs,
+                            revenue trends, regional performance
+                            and product insights.
+
+                        </p>
+
+
+                        <div class="project-tags">
+
+                            <span>Power BI</span>
+                            <span>DAX</span>
+                            <span>Power Query</span>
+                            <span>Excel</span>
+
+                        </div>
+
+
+                        <div class="project-buttons">
+
+                            <a
+                                href="https://github.com/Qandeel2006"
+                                target="_blank"
+                                class="github-btn"
+                            >
+                                GitHub
+                            </a>
+
+                            <a
+                                href="https://github.com/Qandeel2006/powerbi-dashboard.git"
+                                class="demo-btn"
+                            >
+                                Preview
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==========================
+                     PROJECT 2
+                =========================== -->
+
+                <div class="project-card">
+
+                    <div class="project-image">
+
+                        <img
+                            src="assets/hr-dashboard.png"
+                            alt="HR Analytics Dashboard"
+                        >
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <h3>
+                            HR Analytics Dashboard
+                        </h3>
+
+                        <p>
+
+                            Built an HR Analytics Dashboard in Tableau
+                            to visualize employee data, attrition trends,
+                            department performance and workforce KPIs
+                            through interactive charts and dashboards.
+
+                        </p>
+
+
+                        <div class="project-tags">
+
+                            <span>Tableau</span>
+                            <span>Analytics</span>
+                            <span>Excel</span>
+                            <span>Dashboard</span>
+
+                        </div>
+
+
+                        <div class="project-buttons">
+
+                            <a
+                                href="https://github.com/Qandeel2006"
+                                target="_blank"
+                                class="github-btn"
+                            >
+                                GitHub
+                            </a>
+
+                            <a
+                                href="#"
+                                class="demo-btn"
+                            >
+                                Coming Soon
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==========================
+                     PROJECT 3
+                     COMING SOON
+                =========================== -->
+
+                <div class="project-card coming-soon">
+
+                    <div class="coming-content">
+
+                        <h2>
+                            🚀 Coming Soon
+                        </h2>
+
+                        <h3>
+                            Portfolio Website
+                        </h3>
+
+                        <p>
+
+                            Currently developing this responsive
+                            portfolio using HTML, CSS and JavaScript.
+
+                        </p>
+
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill"></div>
+
+                        </div>
+
+                        <small>
+                            Currently Building...
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             LEARNING SECTION
+        ================================================== -->
+
+        <section
+            class="learning section"
+            id="learning"
+        >
+
+            <div class="section-title">
+
+                <span>
+                    CURRENTLY LEARNING
+                </span>
+
+                <h2>
+                    My Learning Journey
+                </h2>
+
+                <p>
+
+                    I'm continuously improving my technical skills
+                    by building projects and learning modern technologies.
+
+                </p>
+
+            </div>
+
+
+            <div class="learning-grid">
+
+                <div class="learn-card">
+
+                    <h3>🐍 Python</h3>
+
+                    <div class="learn-bar">
+                        <div class="fill python"></div>
+                    </div>
 
                     <small>
-                        Currently Building...
+                        Building Strong Foundation
+                    </small>
+
+                </div>
+
+
+                <div class="learn-card">
+
+                    <h3>💾 SQL</h3>
+
+                    <div class="learn-bar">
+                        <div class="fill sql"></div>
+                    </div>
+
+                    <small>
+                        Learning Database Queries
+                    </small>
+
+                </div>
+
+
+                <div class="learn-card">
+
+                    <h3>🌐 HTML & CSS</h3>
+
+                    <div class="learn-bar">
+                        <div class="fill html"></div>
+                    </div>
+
+                    <small>
+                        Building Responsive Websites
+                    </small>
+
+                </div>
+
+
+                <div class="learn-card">
+
+                    <h3>⚡ JavaScript</h3>
+
+                    <div class="learn-bar">
+                        <div class="fill js"></div>
+                    </div>
+
+                    <small>
+                        Making Websites Interactive
+                    </small>
+
+                </div>
+
+
+                <div class="learn-card">
+
+                    <h3>📊 Power BI</h3>
+
+                    <div class="learn-bar">
+                        <div class="fill powerbi"></div>
+                    </div>
+
+                    <small>
+                        Interactive Dashboards
+                    </small>
+
+                </div>
+
+
+                <div class="learn-card">
+
+                    <h3>🔧 Git & GitHub</h3>
+
+                    <div class="learn-bar">
+
+                        <div class="fill git"></div>
+
+                    </div>
+
+                    <small>
+                        Version Control & Collaboration
                     </small>
 
                 </div>
 
             </div>
 
+        </section>
+
+
+
+        <!-- ==================================================
+             CONTACT
+             VERSION 6 WILL BUILD THIS
+        ================================================== -->
+<!-- =========================
+     CONTACT SECTION
+========================= -->
+
+<section class="contact section reveal" id="contact">
+
+    <div class="section-title">
+
+        <span>GET IN TOUCH</span>
+
+        <h2>Let's Connect</h2>
+
+        <p>
+            Have a project idea, internship opportunity, or
+            just want to say hello? I'd love to hear from you.
+        </p>
+
+    </div>
+
+
+    <div class="contact-container">
+
+        <!-- Contact Information -->
+
+        <div class="contact-info">
+
+            <div class="glass-card">
+
+                <h3>Let's Talk 👋</h3>
+
+                <p>
+                    I'm always interested in learning, collaborating
+                    on projects, and connecting with people who share
+                    an interest in technology and data.
+                </p>
+
+
+                <!-- Email -->
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        ✉️
+                    </div>
+
+                    <div>
+
+                        <span>Email</span>
+
+                        <a href="mailto:qandeelqudsia@gmail.com">
+                            qandeelqudsia@gmail.com
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- GitHub -->
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        💻
+                    </div>
+
+                    <div>
+
+                        <span>GitHub</span>
+
+                        <a
+                            href="https://github.com/Qandeel2006"
+                            target="_blank">
+                            github.com/Qandeel2006
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LinkedIn -->
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        💼
+                    </div>
+
+                    <div>
+
+                        <span>LinkedIn</span>
+
+                        <a href="https://www.linkedin.com/in/qandeel-qudsia" target="_blank">
+                            Connect with me
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-    </section>
+
+        <!-- Contact Form -->
+
+        <div class="contact-form">
+
+            <div class="glass-card">
+
+                <h3>Send Me a Message</h3>
+
+                <form id="contact-form">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Your Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required>
+
+                    </div>
 
 
-    <!-- =====================================================
-         CURRENTLY LEARNING SECTION
-    ====================================================== -->
+                    <div class="form-group">
 
-    <section class="learning section" id="learning">
+                        <label for="email">
+                            Your Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
 
 
-        <!-- Section heading -->
-        <div class="section-title">
+                    <div class="form-group">
 
-            <span>
-                CURRENTLY LEARNING
-            </span>
+                        <label for="message">
+                            Your Message
+                        </label>
 
-            <h2>
-                My Learning Journey
-            </h2>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="6"
+                            placeholder="Write your message..."
+                            required></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="contact-submit">
+
+                        Send Message 🚀
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    </main>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- Logo and introduction -->
+
+        <div class="footer-about">
+
+            <div class="footer-logo">
+                QQ<span>.</span>
+            </div>
 
             <p>
-
-                I'm continuously improving my technical skills by
-                building projects and learning modern technologies.
-
+                Data Science student passionate about
+                technology, data analytics and software
+                development.
             </p>
 
         </div>
 
 
-        <!-- Learning cards -->
-        <div class="learning-grid">
+        <!-- Quick Links -->
 
+        <div class="footer-links">
 
-            <!-- Python -->
-            <div class="learn-card">
+            <h3>Quick Links</h3>
 
-                <h3>
-                    🐍 Python
-                </h3>
-
-                <div class="learn-bar">
-
-                    <div class="fill python"></div>
-
-                </div>
-
-                <small>
-                    Building Strong Foundation
-                </small>
-
-            </div>
-
-
-            <!-- SQL -->
-            <div class="learn-card">
-
-                <h3>
-                    💾 SQL
-                </h3>
-
-                <div class="learn-bar">
-
-                    <div class="fill sql"></div>
-
-                </div>
-
-                <small>
-                    Learning Database Queries
-                </small>
-
-            </div>
-
-
-            <!-- HTML & CSS -->
-            <div class="learn-card">
-
-                <h3>
-                    🌐 HTML & CSS
-                </h3>
-
-                <div class="learn-bar">
-
-                    <div class="fill html"></div>
-
-                </div>
-
-                <small>
-                    Building Responsive Websites
-                </small>
-
-            </div>
-
-
-            <!-- JavaScript -->
-            <div class="learn-card">
-
-                <h3>
-                    ⚡ JavaScript
-                </h3>
-
-                <div class="learn-bar">
-
-                    <div class="fill js"></div>
-
-                </div>
-
-                <small>
-                    Making Websites Interactive
-                </small>
-
-            </div>
-
-
-            <!-- Power BI -->
-            <div class="learn-card">
-
-                <h3>
-                    📊 Power BI
-                </h3>
-
-                <div class="learn-bar">
-
-                    <div class="fill powerbi"></div>
-
-                </div>
-
-                <small>
-                    Interactive Dashboards
-                </small>
-
-            </div>
-
-
-            <!-- Git & GitHub -->
-            <div class="learn-card">
-
-                <h3>
-                    🔧 Git & GitHub
-                </h3>
-
-                <div class="learn-bar">
-
-                    <div class="fill git"></div>
-
-                </div>
-
-                <small>
-                    Version Control & Collaboration
-                </small>
-
-            </div>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Journey</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
 
         </div>
 
-    </section>
+
+        <!-- Social Links -->
+
+        <div class="footer-social">
+
+            <h3>Connect With Me</h3>
+
+            <a
+                href="https://github.com/Qandeel2006"
+                target="_blank">
+                GitHub
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/qandeel-qudsia"
+                target="_blank">
+                LinkedIn
+            </a>
+
+        </div>
+
+    </div>
 
 
-    <!-- =====================================================
-         CONTACT SECTION
-         Currently empty - we can build this later.
-    ====================================================== -->
+    <!-- Bottom Footer -->
 
-    <section id="contact">
+    <div class="footer-bottom">
 
-    </section>
+        <p>
+            © 2026 Qandeel Qudsia. All rights reserved.
+        </p>
 
+        <p>
+            Built with HTML, CSS & JavaScript ❤️
+        </p>
 
-    <!-- =====================================================
+    </div>
+
+</footer>
+
+    <!-- ==================================================
          JAVASCRIPT
-         Loads all portfolio interactions and animations.
-    ====================================================== -->
+    ================================================== -->
 
     <script src="script.js"></script>
 
-
 </body>
-
 </html>
