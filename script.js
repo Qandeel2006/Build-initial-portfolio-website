@@ -1171,3 +1171,76 @@ console.log(
     "%cVersions 1 → 4 Active ✅",
     "color:#8B5CF6;font-size:16px;font-weight:bold;"
 );
+/* ==========================================
+   VERSION 5 — THEME SWITCHER
+========================================== */
+
+const themeToggle = document.getElementById("theme-toggle");
+
+
+// Check if the user previously selected light mode
+
+const savedTheme = localStorage.getItem("portfolio-theme");
+
+if (savedTheme === "light") {
+
+    document.body.classList.add("light-theme");
+
+    themeToggle.textContent = "🌙";
+
+}
+
+
+// Toggle theme when button is clicked
+
+if (themeToggle) {
+
+    themeToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("light-theme");
+
+
+        // Check current theme
+
+        const isLight =
+            document.body.classList.contains("light-theme");
+
+
+        // Change button icon
+
+        themeToggle.textContent =
+            isLight ? "🌙" : "☀️";
+
+
+        // Save user's choice
+
+        localStorage.setItem(
+            "portfolio-theme",
+            isLight ? "light" : "dark"
+        );
+
+    });
+
+}
+// =========================================================
+// CONTACT FORM
+// Prevent the browser from reloading the local HTML file
+// =========================================================
+
+const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", function (event) {
+
+        // Stop normal form submission
+        event.preventDefault();
+
+        alert("Thank you! Your message has been received. 🚀");
+
+        // Clear the form
+        contactForm.reset();
+
+    });
+
+}
