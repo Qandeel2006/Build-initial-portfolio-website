@@ -1,17 +1,18 @@
 // ============================================================
 // QANDEEL QUDSIA | PORTFOLIO JAVASCRIPT
 // ============================================================
-// This file contains all JavaScript functionality for the
-// portfolio website.
+// This file controls all interactive features of the portfolio.
 //
-// Versions included:
-// V1 → Core interactions and animations
-// V2 → Advanced animations and counters
-// V3 → Project section animations
-// V4 → Premium navbar behavior
+// VERSION 1 → Core functionality
+// VERSION 2 → Advanced animations
+// VERSION 3 → Project animations
+// VERSION 4 → Premium navbar
+// VERSION 5 → Theme switcher + Contact form
 //
-// Everything is organized into sections so it is easier to
-// understand, edit, and maintain.
+// IMPORTANT:
+// The navbar background is NOT controlled by JavaScript.
+// CSS controls the light/dark appearance so the navbar
+// stays consistent with the selected theme.
 // ============================================================
 
 
@@ -26,9 +27,7 @@
 // ------------------------------------------------------------
 // 1. TYPING EFFECT
 // ------------------------------------------------------------
-// This creates the animated text in the Hero section.
-// It types each word, pauses, deletes it, and then moves
-// to the next word.
+// Creates the animated text in the Hero section.
 // ------------------------------------------------------------
 
 const words = [
@@ -51,9 +50,9 @@ function typeEffect() {
 
     const currentWord = words[wordIndex];
 
-    // --------------------------------------------------------
-    // Typing characters
-    // --------------------------------------------------------
+    // -------------------------
+    // Typing
+    // -------------------------
 
     if (!deleting) {
 
@@ -62,8 +61,8 @@ function typeEffect() {
 
         charIndex++;
 
-        // When the complete word has been typed,
-        // wait before starting deletion.
+        // When the complete word is typed,
+        // pause before deleting.
         if (charIndex > currentWord.length) {
 
             deleting = true;
@@ -75,9 +74,9 @@ function typeEffect() {
 
     }
 
-    // --------------------------------------------------------
-    // Deleting characters
-    // --------------------------------------------------------
+    // -------------------------
+    // Deleting
+    // -------------------------
 
     else {
 
@@ -86,7 +85,7 @@ function typeEffect() {
 
         charIndex--;
 
-        // When the word has completely disappeared,
+        // When the word disappears,
         // move to the next word.
         if (charIndex < 0) {
 
@@ -94,8 +93,6 @@ function typeEffect() {
 
             wordIndex++;
 
-            // Restart from the first word when we reach
-            // the end of the list.
             if (wordIndex >= words.length) {
 
                 wordIndex = 0;
@@ -106,7 +103,7 @@ function typeEffect() {
 
     }
 
-    // Typing is slower than deleting.
+    // Deleting is faster than typing.
     setTimeout(
         typeEffect,
         deleting ? 45 : 90
@@ -120,11 +117,12 @@ typeEffect();
 // ------------------------------------------------------------
 // 2. SECTION REVEAL ANIMATION
 // ------------------------------------------------------------
-// Elements with the "reveal" class become visible when they
-// enter the screen while scrolling.
+// Elements with the "reveal" class become visible when
+// they enter the viewport.
 // ------------------------------------------------------------
 
-const reveals = document.querySelectorAll(".reveal");
+const reveals =
+    document.querySelectorAll(".reveal");
 
 function revealSections() {
 
@@ -160,7 +158,7 @@ window.addEventListener(
 // ------------------------------------------------------------
 // 3. MOUSE GLOW
 // ------------------------------------------------------------
-// Moves the glowing circle according to the user's mouse.
+// Moves the purple glow according to the mouse position.
 // ------------------------------------------------------------
 
 const glow =
@@ -188,8 +186,7 @@ if (glow) {
 // ------------------------------------------------------------
 // 4. SCROLL PROGRESS BAR
 // ------------------------------------------------------------
-// Calculates how far the user has scrolled and updates
-// the width of the progress bar at the top of the page.
+// Shows how far the visitor has scrolled down the page.
 // ------------------------------------------------------------
 
 const progressBar =
@@ -217,7 +214,6 @@ function updateScrollProgress() {
         progressBar.style.width = "0%";
 
         return;
-
     }
 
     const width =
@@ -237,7 +233,7 @@ window.addEventListener(
 // ------------------------------------------------------------
 // 5. SMOOTH SCROLL
 // ------------------------------------------------------------
-// Makes navbar links smoothly scroll to their sections.
+// Makes navigation links smoothly scroll to sections.
 // ------------------------------------------------------------
 
 document
@@ -256,6 +252,7 @@ document
                     !targetID ||
                     targetID === "#"
                 ) {
+
                     return;
                 }
 
@@ -284,8 +281,8 @@ document
 // ------------------------------------------------------------
 // 6. ACTIVE NAVBAR LINK
 // ------------------------------------------------------------
-// Detects which section is currently visible and highlights
-// its corresponding navbar link.
+// Highlights the navbar link belonging to the section
+// currently being viewed.
 // ------------------------------------------------------------
 
 const sections =
@@ -303,7 +300,10 @@ function updateActiveNavbar() {
         const sectionTop =
             section.offsetTop - 200;
 
-        if (window.scrollY >= sectionTop) {
+        if (
+            window.scrollY >=
+            sectionTop
+        ) {
 
             current =
                 section.getAttribute("id");
@@ -326,6 +326,7 @@ function updateActiveNavbar() {
         }
 
     });
+
 }
 
 window.addEventListener(
@@ -338,7 +339,7 @@ window.addEventListener(
 // ------------------------------------------------------------
 // 7. MOBILE MENU
 // ------------------------------------------------------------
-// Opens and closes the navigation menu on smaller screens.
+// Opens and closes the navigation menu on small screens.
 // ------------------------------------------------------------
 
 const menu =
@@ -363,54 +364,9 @@ if (menu && nav) {
 
 
 // ------------------------------------------------------------
-// 8. NAVBAR BACKGROUND
+// 8. BUTTON HOVER EFFECT
 // ------------------------------------------------------------
-// Changes the navbar background and shadow after scrolling.
-// This is the original V1 navbar behavior.
-// V4 later adds the shrinking effect.
-// ------------------------------------------------------------
-
-const navbar =
-    document.querySelector(".navbar");
-
-function updateNavbarBackground() {
-
-    if (!navbar) return;
-
-    if (window.scrollY > 80) {
-
-        navbar.style.background =
-            "rgba(10,10,20,.85)";
-
-        navbar.style.boxShadow =
-            "0 20px 60px rgba(0,0,0,.4)";
-
-    }
-
-    else {
-
-        navbar.style.background =
-            "rgba(255,255,255,.05)";
-
-        navbar.style.boxShadow =
-            "none";
-
-    }
-
-}
-
-window.addEventListener(
-    "scroll",
-    updateNavbarBackground
-);
-
-
-
-// ------------------------------------------------------------
-// 9. BUTTON HOVER EFFECT
-// ------------------------------------------------------------
-// Adds a small lift and scale effect when hovering over
-// normal portfolio buttons.
+// Adds a small lift effect to the main buttons.
 // ------------------------------------------------------------
 
 const buttons =
@@ -443,10 +399,9 @@ buttons.forEach(button => {
 
 
 // ------------------------------------------------------------
-// 10. FLOATING PROFILE CARD
+// 9. FLOATING PROFILE CARD
 // ------------------------------------------------------------
-// Makes the profile card slightly rotate according to
-// mouse movement, creating a 3D floating effect.
+// Creates a subtle 3D movement when the mouse moves.
 // ------------------------------------------------------------
 
 const profileCard =
@@ -481,10 +436,10 @@ if (profileCard) {
 
 
 // ------------------------------------------------------------
-// 11. PROFILE CARD RESET
+// 10. PROFILE CARD RESET
 // ------------------------------------------------------------
-// Resets the profile card rotation when the mouse leaves
-// the document.
+// Returns the profile card to its normal position when
+// the mouse leaves the page.
 // ------------------------------------------------------------
 
 document.addEventListener(
@@ -503,23 +458,6 @@ document.addEventListener(
 
 
 
-// ------------------------------------------------------------
-// V1 CONSOLE MESSAGE
-// ------------------------------------------------------------
-
-console.log(
-    "%cWelcome Qandeel 👋",
-    "color:#22d3ee;font-size:22px;font-weight:bold"
-);
-
-console.log(
-    "Portfolio Version 1 Loaded Successfully 🚀"
-);
-
-
-
-
-
 // ============================================================
 // VERSION 2
 // ADVANCED ANIMATIONS
@@ -528,13 +466,9 @@ console.log(
 
 
 // ------------------------------------------------------------
-// 12. COUNTER ANIMATION
+// 11. COUNTER ANIMATION
 // ------------------------------------------------------------
-// Animates the numbers in the About section.
-//
-// Example:
-// data-target="10"
-// starts from 0 and counts up to 10.
+// Animates the statistics in the About section.
 // ------------------------------------------------------------
 
 const counters =
@@ -544,11 +478,13 @@ if ("IntersectionObserver" in window) {
 
     const counterObserver =
         new IntersectionObserver(
+
             (entries, observer) => {
 
                 entries.forEach(entry => {
 
                     if (!entry.isIntersecting) {
+
                         return;
                     }
 
@@ -556,7 +492,9 @@ if ("IntersectionObserver" in window) {
                         entry.target;
 
                     const target =
-                        Number(counter.dataset.target);
+                        Number(
+                            counter.dataset.target
+                        );
 
                     let count = 0;
 
@@ -590,15 +528,17 @@ if ("IntersectionObserver" in window) {
                     updateCounter();
 
                     // Prevent the same counter from
-                    // running repeatedly.
+                    // running again.
                     observer.unobserve(counter);
 
                 });
 
             },
+
             {
                 threshold: 0.6
             }
+
         );
 
     counters.forEach(counter => {
@@ -612,9 +552,9 @@ if ("IntersectionObserver" in window) {
 
 
 // ------------------------------------------------------------
-// 13. TIMELINE ANIMATION
+// 12. TIMELINE ANIMATION
 // ------------------------------------------------------------
-// Slides timeline cards into position when they appear.
+// Slides timeline cards into position.
 // ------------------------------------------------------------
 
 const timelineCards =
@@ -624,6 +564,7 @@ if ("IntersectionObserver" in window) {
 
     const timelineObserver =
         new IntersectionObserver(
+
             entries => {
 
                 entries.forEach(entry => {
@@ -643,9 +584,11 @@ if ("IntersectionObserver" in window) {
                 });
 
             },
+
             {
                 threshold: 0.3
             }
+
         );
 
     timelineCards.forEach(card => {
@@ -667,9 +610,9 @@ if ("IntersectionObserver" in window) {
 
 
 // ------------------------------------------------------------
-// 14. SKILL CARD 3D HOVER
+// 13. SKILL CARD 3D HOVER
 // ------------------------------------------------------------
-// Makes skill cards tilt according to the mouse position.
+// Tilts skill cards according to mouse position.
 // ------------------------------------------------------------
 
 const skillCards =
@@ -720,12 +663,9 @@ skillCards.forEach(card => {
 
 
 // ------------------------------------------------------------
-// 15. STAGGER REVEAL
+// 14. STAGGER REVEAL
 // ------------------------------------------------------------
-// Gives About, Stats, Timeline and Skill cards a staggered
-// entrance animation.
-//
-// Each card gets a slightly different delay.
+// Gives cards a slightly different entrance delay.
 // ------------------------------------------------------------
 
 const revealItems =
@@ -737,6 +677,7 @@ if ("IntersectionObserver" in window) {
 
     const staggerObserver =
         new IntersectionObserver(
+
             entries => {
 
                 entries.forEach(entry => {
@@ -754,9 +695,11 @@ if ("IntersectionObserver" in window) {
                 });
 
             },
+
             {
                 threshold: 0.2
             }
+
         );
 
     revealItems.forEach((item, index) => {
@@ -778,9 +721,9 @@ if ("IntersectionObserver" in window) {
 
 
 // ------------------------------------------------------------
-// 16. FLOATING BACKGROUND BLOBS
+// 15. FLOATING BACKGROUND BLOBS
 // ------------------------------------------------------------
-// Adds small random movements to the background blobs.
+// Adds subtle random movement to the background blobs.
 // ------------------------------------------------------------
 
 document
@@ -804,19 +747,6 @@ document
 
 
 
-// ------------------------------------------------------------
-// V2 CONSOLE MESSAGE
-// ------------------------------------------------------------
-
-console.log(
-    "%cVersion 2 Loaded 🚀",
-    "font-size:18px;color:#8B5CF6;font-weight:bold;"
-);
-
-
-
-
-
 // ============================================================
 // VERSION 3
 // PROJECT SECTION
@@ -825,7 +755,7 @@ console.log(
 
 
 // ------------------------------------------------------------
-// 17. PROJECT CARD SCROLL ANIMATION
+// 16. PROJECT CARD SCROLL ANIMATION
 // ------------------------------------------------------------
 // Project cards appear with a smooth upward animation.
 // ------------------------------------------------------------
@@ -837,6 +767,7 @@ if ("IntersectionObserver" in window) {
 
     const projectObserver =
         new IntersectionObserver(
+
             entries => {
 
                 entries.forEach(entry => {
@@ -856,9 +787,11 @@ if ("IntersectionObserver" in window) {
                 });
 
             },
+
             {
                 threshold: 0.2
             }
+
         );
 
     projectCards.forEach((card, index) => {
@@ -880,10 +813,9 @@ if ("IntersectionObserver" in window) {
 
 
 // ------------------------------------------------------------
-// 18. PROJECT IMAGE HOVER
+// 17. PROJECT IMAGE HOVER
 // ------------------------------------------------------------
-// Adds a small 3D movement to project images based on
-// the mouse position.
+// Adds a subtle 3D movement to project images.
 // ------------------------------------------------------------
 
 document
@@ -934,10 +866,9 @@ document
 
 
 // ------------------------------------------------------------
-// 19. PROJECT TECHNOLOGY TAGS
+// 18. PROJECT TECHNOLOGY TAGS
 // ------------------------------------------------------------
-// Adds a small hover animation to tags such as Power BI,
-// Tableau, Excel, DAX, etc.
+// Adds a small hover animation to technology tags.
 // ------------------------------------------------------------
 
 document
@@ -969,10 +900,10 @@ document
 
 
 // ------------------------------------------------------------
-// 20. COMING SOON PROGRESS ANIMATION
+// 19. COMING SOON PROGRESS ANIMATION
 // ------------------------------------------------------------
-// Continuously changes the progress bar of the
-// "Portfolio Website - Coming Soon" card.
+// Animates the progress bar in the Portfolio Website
+// "Coming Soon" card.
 // ------------------------------------------------------------
 
 const progressFill =
@@ -1002,10 +933,10 @@ if (progressFill) {
 
 
 // ------------------------------------------------------------
-// 21. PROJECT BUTTON RIPPLE EFFECT
+// 20. PROJECT BUTTON RIPPLE EFFECT
 // ------------------------------------------------------------
-// Creates a small ripple animation when the user clicks
-// GitHub or Preview buttons.
+// Creates a ripple effect when GitHub or Preview buttons
+// are clicked.
 // ------------------------------------------------------------
 
 document
@@ -1026,10 +957,12 @@ document
                     "absolute";
 
                 ripple.style.left =
-                    (event.clientX - rect.left) + "px";
+                    (event.clientX - rect.left) +
+                    "px";
 
                 ripple.style.top =
-                    (event.clientY - rect.top) + "px";
+                    (event.clientY - rect.top) +
+                    "px";
 
                 ripple.style.width =
                     "10px";
@@ -1063,25 +996,16 @@ document
 
 
 
-// ------------------------------------------------------------
-// V3 CONSOLE MESSAGE
-// ------------------------------------------------------------
-
-console.log(
-    "%cVersion 3 Loaded 🚀",
-    "color:#38bdf8;font-size:18px;font-weight:bold;"
-);
-
-
-
-
-
 // ============================================================
 // VERSION 4
 // PREMIUM NAVBAR
 // ============================================================
-// The navbar becomes smaller and darker after the user
-// starts scrolling.
+// IMPORTANT:
+// JavaScript ONLY changes navbar size and shadow.
+//
+// It does NOT change the navbar background.
+//
+// This allows CSS to control the light/dark theme correctly.
 // ============================================================
 
 const navBar =
@@ -1093,31 +1017,23 @@ function updatePremiumNavbar() {
 
     if (window.scrollY > 60) {
 
-        // Smaller navbar when scrolling
+        // Make navbar slightly smaller while scrolling.
         navBar.style.padding =
             "12px 28px";
 
-        // Darker background
-        navBar.style.background =
-            "rgba(5,10,20,.92)";
-
-        // Add shadow
+        // Add a soft shadow.
         navBar.style.boxShadow =
-            "0 20px 50px rgba(0,0,0,.45)";
+            "0 20px 50px rgba(0,0,0,.25)";
 
     }
 
     else {
 
-        // Return to original size
+        // Return navbar to original size.
         navBar.style.padding =
             "16px 32px";
 
-        // Return to original background
-        navBar.style.background =
-            "rgba(8,12,25,.65)";
-
-        // Remove shadow
+        // Remove shadow.
         navBar.style.boxShadow =
             "none";
 
@@ -1125,6 +1041,7 @@ function updatePremiumNavbar() {
 
 }
 
+// Only ONE scroll listener.
 window.addEventListener(
     "scroll",
     updatePremiumNavbar
@@ -1133,10 +1050,127 @@ window.addEventListener(
 
 
 // ============================================================
+// VERSION 5
+// THEME SWITCHER
+// ============================================================
+// Saves the selected theme in localStorage so the user's
+// choice remains after refreshing the page.
+// ============================================================
+
+const themeToggle =
+    document.getElementById("theme-toggle");
+
+function applySavedTheme() {
+
+    if (!themeToggle) return;
+
+    const savedTheme =
+        localStorage.getItem("portfolio-theme");
+
+    if (savedTheme === "light") {
+
+        document.body.classList.add(
+            "light-theme"
+        );
+
+        themeToggle.textContent =
+            "🌙";
+
+    }
+
+    else {
+
+        document.body.classList.remove(
+            "light-theme"
+        );
+
+        themeToggle.textContent =
+            "☀️";
+
+    }
+
+}
+
+applySavedTheme();
+
+
+
+// ------------------------------------------------------------
+// Theme button click
+// ------------------------------------------------------------
+
+if (themeToggle) {
+
+    themeToggle.addEventListener(
+        "click",
+        () => {
+
+            document.body.classList.toggle(
+                "light-theme"
+            );
+
+            const isLight =
+                document.body.classList.contains(
+                    "light-theme"
+                );
+
+            // Change the icon.
+            themeToggle.textContent =
+                isLight ? "🌙" : "☀️";
+
+            // Remember the user's choice.
+            localStorage.setItem(
+                "portfolio-theme",
+                isLight ? "light" : "dark"
+            );
+
+        }
+    );
+
+}
+
+
+
+// ============================================================
+// CONTACT FORM
+// ============================================================
+// Prevents the form from trying to reload the local HTML file.
+//
+// NOTE:
+// This currently displays a success message only.
+// It does NOT send an email yet.
+// ============================================================
+
+const contactForm =
+    document.getElementById("contact-form");
+
+if (contactForm) {
+
+    contactForm.addEventListener(
+        "submit",
+        function (event) {
+
+            // Stop the browser's normal form submission.
+            event.preventDefault();
+
+            alert(
+                "Thank you! Your message has been received. 🚀"
+            );
+
+            // Clear the form.
+            contactForm.reset();
+
+        }
+    );
+
+}
+
+
+
+// ============================================================
 // INITIAL SETUP
 // ============================================================
-// Run important functions once when the page first loads,
-// instead of waiting for the first scroll.
+// Runs important functions immediately when the page loads.
 // ============================================================
 
 window.addEventListener(
@@ -1149,8 +1183,6 @@ window.addEventListener(
 
         updateActiveNavbar();
 
-        updateNavbarBackground();
-
         updatePremiumNavbar();
 
     }
@@ -1159,8 +1191,13 @@ window.addEventListener(
 
 
 // ============================================================
-// FINAL CONSOLE MESSAGE
+// CONSOLE MESSAGES
 // ============================================================
+
+console.log(
+    "%cWelcome Qandeel 👋",
+    "color:#22d3ee;font-size:22px;font-weight:bold;"
+);
 
 console.log(
     "%cPortfolio JavaScript Loaded Successfully 🚀",
@@ -1168,79 +1205,6 @@ console.log(
 );
 
 console.log(
-    "%cVersions 1 → 4 Active ✅",
+    "%cVersions 1 → 5 Active ✅",
     "color:#8B5CF6;font-size:16px;font-weight:bold;"
 );
-/* ==========================================
-   VERSION 5 — THEME SWITCHER
-========================================== */
-
-const themeToggle = document.getElementById("theme-toggle");
-
-
-// Check if the user previously selected light mode
-
-const savedTheme = localStorage.getItem("portfolio-theme");
-
-if (savedTheme === "light") {
-
-    document.body.classList.add("light-theme");
-
-    themeToggle.textContent = "🌙";
-
-}
-
-
-// Toggle theme when button is clicked
-
-if (themeToggle) {
-
-    themeToggle.addEventListener("click", () => {
-
-        document.body.classList.toggle("light-theme");
-
-
-        // Check current theme
-
-        const isLight =
-            document.body.classList.contains("light-theme");
-
-
-        // Change button icon
-
-        themeToggle.textContent =
-            isLight ? "🌙" : "☀️";
-
-
-        // Save user's choice
-
-        localStorage.setItem(
-            "portfolio-theme",
-            isLight ? "light" : "dark"
-        );
-
-    });
-
-}
-// =========================================================
-// CONTACT FORM
-// Prevent the browser from reloading the local HTML file
-// =========================================================
-
-const contactForm = document.getElementById("contact-form");
-
-if (contactForm) {
-
-    contactForm.addEventListener("submit", function (event) {
-
-        // Stop normal form submission
-        event.preventDefault();
-
-        alert("Thank you! Your message has been received. 🚀");
-
-        // Clear the form
-        contactForm.reset();
-
-    });
-
-}

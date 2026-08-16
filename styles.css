@@ -52,20 +52,40 @@
 :root {
 
     --bg: #070b17;
-
-    --card: rgba(255, 255, 255, .07);
-
-    --border: rgba(255, 255, 255, .15);
+    --card: rgba(255,255,255,.07);
+    --border: rgba(255,255,255,.15);
 
     --purple: #7c3aed;
-
     --cyan: #22d3ee;
-
     --white: #ffffff;
-
     --text: #cbd5e1;
+
+    /* Navbar - Dark Mode */
+    --navbar-bg: rgba(8,12,25,.65);
+    --navbar-border: rgba(255,255,255,.08);
+
 }
 
+/* ==========================================
+   LIGHT MODE
+========================================== */
+
+body.light-mode {
+
+    --bg: #f5f7fb;
+
+    --card: rgba(255,255,255,.65);
+
+    --border: rgba(15,23,42,.12);
+
+    --text: #334155;
+
+    /* Navbar - Light Mode */
+    --navbar-bg: rgba(255,255,255,.78);
+
+    --navbar-border: rgba(15,23,42,.10);
+
+}
 
 /* =========================================================
    3. BODY
@@ -223,6 +243,11 @@ header {
 
 /* Main navbar container */
 
+/* ==========================================
+   NAVBAR
+   Theme-aware navbar
+========================================== */
+
 .navbar {
 
     width: min(94%, 1300px);
@@ -237,13 +262,19 @@ header {
 
     border-radius: 60px;
 
-    background: rgba(8, 12, 25, .65);
+    /* Uses the current theme */
+    background: var(--navbar-bg);
 
     backdrop-filter: blur(18px);
 
-    border: 1px solid rgba(255, 255, 255, .08);
+    border: 1px solid var(--navbar-border);
 
-    transition: .35s;
+    transition:
+        background .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease,
+        padding .35s ease;
+
 }
 
 
@@ -287,13 +318,14 @@ header {
 
     text-decoration: none;
 
-    color: #cbd5e1;
+    color: var(--text);
 
     font-weight: 600;
 
     position: relative;
 
     transition: .3s;
+
 }
 
 
@@ -323,7 +355,8 @@ header {
 
 .nav-links a:hover {
 
-    color: white;
+    color: var(--cyan);
+
 }
 
 
